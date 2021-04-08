@@ -1,0 +1,24 @@
+.navigation{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    right: 0   ;
+    color:blanchedalmond;
+    background-color: blueviolet;
+    text-align: right;
+}
+
+body{
+    width: 800px;
+    margin:auto;
+    font-family: sans-serif;
+    background-image: url("bg.png");
+}
+
+#header{
+    padding: 10px;
+    text-align: center;
+    background: purple;
+    color:white;
+    font-size: 20px;
+}
