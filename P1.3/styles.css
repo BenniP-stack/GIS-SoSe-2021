@@ -1,11 +1,8 @@
 .navigation{
-    position: top right;
-    position: -webkit-sticky;
     position: sticky;
-    color:blanchedalmond;
-    background-color: blueviolet;
-    text-align: center;
-    width: 20%;
+    position: -webkit-sticky;
+    top: 0;
+    float: right;
 }
 
 body{
@@ -15,10 +12,81 @@ body{
     background-image: url("bg.png");
 }
 
-#header{
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    float: right;
+    display: inline;
+    margin-top: 0;
+    margin-right: 0px;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+  
+a {
+    display: block;
+    padding-right: 7px;
+    padding-left: 7px;
+    background-color: black;
+} 
+
+#Portfolio{
     padding: 10px;
     text-align: center;
-    background: purple;
-    color:white;
+    background: black;
+    color:#BDC232;
     font-size: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+section {
+    display: grid;
+    grid: auto / 200px 1fr;
+    border: 3px solid red;
+}
+section p {
+    grid-column: 2 / 3;
+}
+.section-title {
+    grid-column: 1 / 2;
+    text-align: left;
+    align-self: start;
+    top: 1em;
+    position: sticky;
+    top: 1em;
+}
+
+/* Testversuch, after element (pseudo element)*/
+.fancy-link{
+    text-decoration: none;
+    color:#ee6352;
+    position:relative;
+}
+
+.fancy-link::after{
+content:'';
+position:absolute;
+left:0;
+bottom:0;
+width: 100%;
+height: 2px;
+background: currentColor;
+
+transform: scaleX(0);
+transform-origin: right;
+transition: transform 250ms ease-in;
+}
+
+.fancy-link:hover::after{
+    transform:scaleX(1);
+    transform-origin: left;
 }
