@@ -1,11 +1,11 @@
 .navigation{
+    position: top right;
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
-    right: 0   ;
     color:blanchedalmond;
     background-color: blueviolet;
-    text-align: right;
+    text-align: center;
+    width: 20%;
 }
 
 body{
