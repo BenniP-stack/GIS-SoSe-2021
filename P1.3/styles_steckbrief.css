@@ -63,10 +63,11 @@ section {
 
 /* hier unterscheidung zum hervorheben der Seite (Mehrere Stylesheets notwendig mit leichten Variationen)*/
 #pofo{
-    color:crimson;
+    
     border-bottom-left-radius: 5px;
 }
 #steckbrief{
+    color:crimson;
     border-bottom-right-radius: 5px;
 }
 
@@ -162,3 +163,4 @@ input[type=text], select, textarea {
   .fa:hover{
       opacity: .5;
   }
+  

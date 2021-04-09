@@ -40,7 +40,7 @@ a {
     font-size: 20px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
-    height: 200;
+
 }
 .content {
     width: 100%;
@@ -63,11 +63,13 @@ section {
 
 /* hier unterscheidung zum hervorheben der Seite (Mehrere Stylesheets notwendig mit leichten Variationen)*/
 #pofo{
-    color:crimson;
     border-bottom-left-radius: 5px;
 }
 #steckbrief{
     border-bottom-right-radius: 5px;
+}
+#socials{
+    color:crimson;
 }
 
 /* Testversuch, after element (pseudo element)*/
