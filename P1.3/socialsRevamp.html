@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Portfolio ft. CSS</title>
+    <title>Socials ft. CSS</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -132,6 +132,27 @@
     </div>
 
     <!-- KONTAKTFORMULAR -->
+    <div class="container">
+        <form action="/action_page.php">
+          <label for="fname">Vorname</label>
+          <input type="text" id="fname" name="firstname" placeholder="Vorname..">
+      
+          <label for="lname">Nachname</label>
+          <input type="text" id="lname" name="lastname" placeholder="Nachname..">
+      
+          <label for="country">Land</label>
+          <select id="country" name="country">
+            <option value="germany">Deutschland</option>
+            <option value="russia">Russland</option>
+            <option value="austria">Österreich</option>
+          </select>
+      
+          <label for="subject">Betreff</label>
+          <textarea id="subject" name="subject" placeholder="Schreib' mir was.."></textarea>
+      
+          <input type="submit" value="Submit"> <!--Der Submit Button-->
+        </form>
+      </div>
 
 </body>
 
