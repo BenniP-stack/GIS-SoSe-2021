@@ -29,8 +29,8 @@ li {
   
 a {
     display: block;
-    padding-right: 7px;
-    padding-left: 7px;
+    padding-right: 10px;
+    padding-left: 10px;
     background-color: black;
 } 
 
@@ -53,16 +53,22 @@ section {
     grid: auto / 200px 1fr;
     border: 3px solid red;
 }
-section p {
-    grid-column: 2 / 3;
-}
+
 .section-title {
-    grid-column: 1 / 2;
     text-align: left;
     align-self: start;
     top: 1em;
     position: sticky;
     top: 1em;
+}
+
+/* hier unterscheidung zum hervorheben der Seite (Mehrere Stylesheets notwendig mit leichten Variationen)*/
+#pofo{
+    color:crimson;
+    border-bottom-left-radius: 5px;
+}
+#steckbrief{
+    border-bottom-right-radius: 5px;
 }
 
 /* Testversuch, after element (pseudo element)*/
