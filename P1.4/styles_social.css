@@ -1,0 +1,165 @@
+.navigation{
+    position: sticky;
+    top: 0;
+    float: right;
+}
+
+body{
+    width: 800px;
+    margin:auto;
+    font-family: sans-serif;
+    background-image: url("bg.png");
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    float: right;
+    display: inline;
+    margin-top: 0;
+    margin-right: 0px;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+  
+a {
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: black;
+} 
+
+#Portfolio{
+    padding: 10px;
+    text-align: center;
+    background: black;
+    color:#BDC232;
+    font-size: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+section {
+    display: grid;
+    grid: auto / 200px 1fr;
+    /*border: 3px solid red;*/
+}
+
+.section-title {
+    text-align: left;
+    align-self: start;
+    top: 1em;
+    position: sticky;
+    top: 1em;
+}
+
+/* hier unterscheidung zum hervorheben der Seite (Mehrere Stylesheets notwendig mit leichten Variationen)*/
+#pofo{
+    border-bottom-left-radius: 5px;
+}
+#steckbrief{
+    border-bottom-right-radius: 5px;
+}
+#socials{
+    color:crimson;
+}
+
+/* Testversuch, after element (pseudo element)*/
+.fancy-link{
+    text-decoration: none;
+    color:#ee6352;
+    position:relative;
+}
+
+.fancy-link::after{
+content:'';
+position:absolute;
+left:0;
+bottom:0;
+width: 100%;
+height: 2px;
+background: currentColor;
+
+transform: scaleX(0); /*Linie am Anfang invis, da 0% von ihr auf de x Achse zu sehen sind*/
+transform-origin: right; /*NACH dem hover wird die Transformation nach Rechts "right" gehen, da hier der transform-origin liegt*/
+transition: transform 250ms ease-in;
+}
+
+.fancy-link:hover::after{
+    transform:scaleX(1); /*Line breitet sich auf die Gesamtgröße des Hyperlinks aus*/
+    transform-origin: left;
+}
+
+img{
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+}
+
+#MockUp{
+    max-width: 600px;
+    height: auto;
+    border-radius: 5px;
+}
+#Vorstellung{
+    max-width: 600px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Kontaktformular */
+input[type=text], select, textarea {
+    width: 760px; /*800 - 2x 20px padding von Container*/
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type=submit] { /* Styling Submit Button */
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  #subject{ /*Textfeldgröße*/
+      height: 200px;
+  }
+
+  #doggo{
+      width: 800px;
+      height:auto;
+  }
+  .fa{ 
+      width: 20px;
+      height: auto;
+      border-radius: 0;
+      padding-left:3px;
+      padding-right:3px;
+  }
+  .fa:hover{
+      opacity: .5;
+  }
