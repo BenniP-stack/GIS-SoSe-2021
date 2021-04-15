@@ -1,12 +1,12 @@
-.navigation{
+.navigation {
     position: sticky;
     top: 0;
     float: right;
 }
 
-body{
+body {
     width: 800px;
-    margin:auto;
+    margin: auto;
     font-family: sans-serif;
     background-image: url("bg.png");
 }
@@ -21,35 +21,37 @@ li {
     float: right;
     display: inline;
     margin-top: 0;
-    margin-right: 0px;
+    margin-right: 0;
     margin-bottom: 0;
     margin-left: 0;
 }
-  
+
 a {
     padding-right: 10px;
     padding-left: 10px;
     background-color: black;
-} 
+}
 
-#Portfolio{
+#Portfolio {
     padding: 10px;
     text-align: center;
     background: black;
-    color:#BDC232;
+    color: #BDC232;
     font-size: 20px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
 }
+
 .content {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
 }
+
 section {
     display: grid;
     grid: auto / 200px 1fr;
-    border: 3px solid red;
+    /*border: 3px solid red;*/
 }
 
 .section-title {
@@ -60,61 +62,66 @@ section {
     top: 1em;
 }
 
-/* hier unterscheidung zum hervorheben der Seite (Mehrere Stylesheets notwendig mit leichten Variationen)*/
-#pofo{
-    color:crimson;
-    border-bottom-left-radius: 5px;
+#active {
+    color: crimson;
 }
-#steckbrief{
-    border-bottom-right-radius: 5px;
-}
+
 
 /* Testversuch, after element (pseudo element)*/
-.fancy-link{
+
+.fancy-link {
     text-decoration: none;
-    color:#ee6352;
-    position:relative;
+    color: #ee6352;
+    position: relative;
 }
 
-.fancy-link::after{
-content:'';
-position:absolute;
-left:0;
-bottom:0;
-width: 100%;
-height: 2px;
-background: currentColor;
-
-transform: scaleX(0); /*Linie am Anfang invis, da 0% von ihr auf de x Achse zu sehen sind*/
-transform-origin: right; /*NACH dem hover wird die Transformation nach Rechts "right" gehen, da hier der transform-origin liegt*/
-transition: transform 250ms ease-in;
+.fancy-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    /*Linie am Anfang invis, da 0% von ihr auf de x Achse zu sehen sind*/
+    transform-origin: right;
+    /*NACH dem hover wird die Transformation nach Rechts "right" gehen, da hier der transform-origin liegt*/
+    transition: transform 250ms ease-in;
 }
 
-.fancy-link:hover::after{
-    transform:scaleX(1); /*Line breitet sich auf die Gesamtgröße des Hyperlinks aus*/
+.fancy-link:hover::after {
+    transform: scaleX(1);
+    /*Line breitet sich auf die Gesamtgröße des Hyperlinks aus*/
     transform-origin: left;
 }
 
-img{
+img {
     max-width: 600px;
     height: auto;
     border-radius: 10px;
 }
 
-#MockUp{
-    max-width: 600px;
-    height: auto;
-    border-radius: 5px;
-}
-#Vorstellung{
+#MockUp {
     max-width: 600px;
     height: auto;
     border-radius: 5px;
 }
 
+#Vorstellung {
+    max-width: 600px;
+    height: auto;
+    border-radius: 5px;
+}
+
+
 /* Kontaktformular */
-input[type=text], select, textarea {
-    width: 760px; /*800 - 2x 20px padding von Container*/
+
+input[type=text],
+select,
+textarea {
+    width: 760px;
+    /*800 - 2x 20px padding von Container*/
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -122,53 +129,176 @@ input[type=text], select, textarea {
     margin-top: 6px;
     margin-bottom: 16px;
     resize: vertical;
-  }
-  
-  input[type=submit] { /* Styling Submit Button */
+}
+
+input[type=submit] {
+    /* Styling Submit Button */
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
+}
+
+input[type=submit]:hover {
     background-color: #45a049;
-  }
-  
-  .container {
+}
+
+.container {
     border-radius: 5px;
-    background-color: #f2f2f2;
+    background-color: #c0bdbd;
     padding: 20px;
-  }
+}
 
-  #subject{ /*Textfeldgröße*/
-      height: 200px;
-  }
+#subject {
+    /*Textfeldgröße*/
+    height: 200px;
+}
 
-  #doggo{
-      width: 800px;
-      height:auto;
-  }
-  .fa{ 
-      width: 20px;
-      height: auto;
-      border-radius: 0;
-      padding-left:3px;
-      padding-right:3px;
-  }
-  .fa:hover{
-      opacity: .5;
-  }
-    
-    @media (max-width: 1024px) {	
-	
-	/* rules here apply to devices from 769px to 992px (inclusive)*/
-	
+#doggo {
+    width: 800px;
+    height: auto;
+}
+
+.fa {
+    width: 20px;
+    height: auto;
+    border-radius: 0;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.fa:hover {
+    opacity: .5;
+}
+
+@media (max-width: 1024px) {
+    /* rules here apply to devices from 600px to 1024px, everything above is desktop size*/
+    body {
+        width: 670px;
     }
-    @media (max-width: 600px) {
-	*{
-        background-color: black;
+    .navigation {
+        position: sticky;
+        top: 0;
+        float: right;
+        font-size: 25px;
     }
+    .content {
+        width: 100%;
+        margin: 0 auto;
     }
+    #Portfolio {
+        padding: 10px;
+        text-align: center;
+        background: black;
+        color: #BDC232;
+        font-size: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    .content-sidebar {
+        /*Flexbox aufteilung des Platzes mit nth-child (erstes erbendes element links mit 30% vom platz und nth-child(2), dem zweiten erbenden part (eigentlicher content) mit 70%)*/
+        display: flex;
+        flex-wrap: wrap;
+        /*border: 3px solid red;*/
+    }
+    .content-sidebar>:nth-child(1) {
+        flex: 1 1 30%;
+    }
+    .content-sidebar>:nth-child(2) {
+        flex: 1 1 70%;
+    }
+    img {
+        max-width: 99%;
+        height: auto;
+        border-radius: 10px;
+    }
+    #MockUp {
+        max-width: 99%;
+        height: auto;
+        border-radius: 5px;
+    }
+    #Vorstellung {
+        max-width: 99%;
+        height: auto;
+        border-radius: 5px;
+    }
+    .section-title {
+        padding-left: 10px;
+        font-size: 125%;
+    }
+    input[type=text],
+    select,
+    textarea {
+        width: 630px;
+        /*670 - 2x 20px padding von Container*/
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+    }
+    input[type=submit] {
+        /* Styling Submit Button */
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+    .container {
+        border-radius: 5px;
+        background-color: #c0bdbd;
+        padding: 20px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    #subject {
+        /*Textfeldgröße*/
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* rules here apply to devices from 0px to 600px, everything above is tablet/desktop size*/
+    p {
+        font-size: 23px;
+    }
+    .section-title {
+        font-size: 30px;
+    }
+    .navigation {
+        position: sticky;
+        top: 0;
+        float: right;
+        font-size: 27px;
+    }
+    .content {
+        width: 100%;
+        margin: 0 auto;
+    }
+    #Portfolio {
+        padding-top: 15px;
+        padding-bottom: 5;
+        text-align: center;
+        background: black;
+        color: #BDC232;
+        font-size: 30px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    .fa {
+        width: 40px;
+        height: auto;
+        border-radius: 0;
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+}
