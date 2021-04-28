@@ -134,5 +134,166 @@ console.log(split(arr, 1, 2));
 console.log(split(arr, 2, 0));     // Bonus c)
 console.log(split(arr, -1, 2));    // Bonus c)
 console.log(split(arr, 0, 7));     // Bonus c)
-*/ 
+
+*/
+// Aufgabe 3) 
+// a)
+let canvas = document.getElementById("myFirstCanvas");
+let context = canvas.getContext("2d");
+context.fillStyle = "blue"; //Himmel
+context.fillRect(0, 0, 500, 400);
+context.fillStyle = "green"; //Wiese
+context.fillRect(0, 250, 500, 300);
+context.beginPath(); //Baumstamm
+context.lineWidth = 3;
+context.fillStyle = "brown";
+context.moveTo(370, 210);
+context.lineTo(350, 300);
+context.lineTo(410, 300);
+context.lineTo(390, 210);
+context.lineTo(370, 210);
+context.stroke();
+context.fill();
+context.beginPath(); //Blätter
+context.lineWidth = 1;
+context.strokeStyle = "black";
+context.fillStyle = "darkgreen";
+context.arc(360, 210, 30, 0, Math.PI * 2);
+context.fill();
+context.stroke();
+context.beginPath(); //Blätter
+context.lineWidth = 1;
+context.strokeStyle = "black";
+context.fillStyle = "darkgreen";
+context.arc(380, 180, 30, 0, Math.PI * 2);
+context.fill();
+context.stroke();
+context.beginPath(); //Blätter
+context.lineWidth = 1;
+context.strokeStyle = "black";
+context.fillStyle = "darkgreen";
+context.arc(400, 210, 30, 0, Math.PI * 2);
+context.fill();
+context.stroke();
+context.lineWidth = 10; //Haus
+context.fillStyle = "black";
+context.fillRect(75, 140, 150, 110);
+context.fillStyle = "white";
+context.fillRect(130, 190, 40, 60);
+context.beginPath(); //Dach
+context.fillStyle = "black";
+context.moveTo(50, 140);
+context.lineTo(150, 60);
+context.lineTo(250, 140);
+context.closePath();
+context.fill();
+context.stroke();
+context.beginPath(); //Wolke rechts
+context.fillStyle = "white";
+context.arc(340, 60, 40, 0, Math.PI * 2);
+context.fill();
+context.beginPath(); //Wolke r
+context.fillStyle = "white";
+context.arc(370, 35, 30, 0, Math.PI * 2);
+context.fill();
+context.beginPath(); //Wolke r
+context.fillStyle = "white";
+context.arc(385, 60, 40, 0, Math.PI * 2);
+context.fill();
+context.beginPath(); //Wolke links
+context.fillStyle = "lightgrey";
+context.arc(35, 60, 20, 0, Math.PI * 2);
+context.fill();
+context.beginPath(); //Wolke l
+context.fillStyle = "lightgrey";
+context.arc(80, 44, 25, 0, Math.PI * 2);
+context.fill();
+context.beginPath(); //Wolke l
+context.fillStyle = "lightgrey";
+context.arc(55, 60, 25, 0, Math.PI * 2);
+context.fill();
+console.log(canvas);
+/*
+//b
+interface Rechteck {
+    fillRect(x: number, y: number, w: number, h: number): void;
+    strokeRect(x: number, y: number, w: number, h: number): void;
+}
+
+//c
+
+function getRandom(max: number): number {
+    return Math.floor(Math.random() * max);
+}
+
+function createRect() {
+    let x: number = getRandom(500);
+    let w: number = getRandom(500);
+    let y: number = getRandom(400);
+    let h: number = getRandom(400);
+    context.fillRect(x, y, w, h);
+}
+
+createRect();
+*/
+class Rectangle {
+    createRectangle(_width, _height) {
+        this.width = _width;
+        this.height = _height;
+    }
+    // c)
+    createRandomRec() {
+        this.width = Math.floor(Math.random() * 100);
+        this.height = Math.floor(Math.random() * 100);
+    }
+    // d)
+    drawRectangle(x, y, fill, color) {
+        let c = "#ffc3a0";
+        context.beginPath();
+        context.rect(x, y, this.width, this.height);
+        if (color) {
+            context.fillStyle = color;
+            context.strokeStyle = color;
+        }
+        else {
+            context.fillStyle = c;
+            context.strokeStyle = c;
+        }
+        if (fill) {
+            context.fill();
+        }
+        context.stroke();
+    }
+    drawRandom() {
+        let x = Math.floor(Math.random() * 500);
+        let y = Math.floor(Math.random() * 400);
+        context.beginPath();
+        context.rect(x, y, this.width, this.height);
+        context.fillStyle = "#c0c0c0";
+        context.strokeStyle = "#c0c0c0";
+        context.fill();
+        context.stroke();
+    }
+}
+const r1 = new Rectangle();
+r1.createRectangle(300, 200);
+r1.drawRectangle(300, 650, true);
+// c)
+const r2 = new Rectangle();
+r2.createRandomRec();
+r2.drawRectangle(20, 700, false);
+// d)
+const r3 = new Rectangle();
+r3.createRandomRec();
+r3.drawRectangle(450, 800, true, "#5ac18e");
+// e)
+const r4 = new Rectangle();
+r4.createRandomRec();
+const r5 = new Rectangle();
+r5.createRandomRec();
+const r6 = new Rectangle();
+r6.createRandomRec();
+let rectangles = new Array();
+rectangles = [r4, r5, r6];
+rectangles.forEach(rec => rec.drawRandom());
 //# sourceMappingURL=script.js.map
