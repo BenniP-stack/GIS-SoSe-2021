@@ -1,6 +1,8 @@
 "use strict";
-//1. a)
-/*
+/*//1. a)
+
+
+
 function min(einhorn: number[]): void {
     let zwischenspeicher: number = einhorn[0];
 
@@ -235,27 +237,32 @@ function createRect() {
 }
 
 createRect();
-*/
+
+
 class Rectangle {
-    createRectangle(_width, _height) {
+    width: number;
+    height: number;
+
+    createRectangle(_width: number, _height: number): void {
         this.width = _width;
         this.height = _height;
     }
+
     // c)
-    createRandomRec() {
+    createRandomRec(): void {
         this.width = Math.floor(Math.random() * 100);
         this.height = Math.floor(Math.random() * 100);
     }
+    
     // d)
-    drawRectangle(x, y, fill, color) {
-        let c = "#ffc3a0";
+    drawRectangle(x: number, y: number, fill: boolean, color?: string): void {
+        let c: string = "#ffc3a0";
         context.beginPath();
         context.rect(x, y, this.width, this.height);
         if (color) {
             context.fillStyle = color;
             context.strokeStyle = color;
-        }
-        else {
+        } else {
             context.fillStyle = c;
             context.strokeStyle = c;
         }
@@ -264,9 +271,10 @@ class Rectangle {
         }
         context.stroke();
     }
-    drawRandom() {
-        let x = Math.floor(Math.random() * 500);
-        let y = Math.floor(Math.random() * 400);
+
+    drawRandom(): void {
+        let x: number = Math.floor(Math.random() * 500);
+        let y: number = Math.floor(Math.random() * 400);
         context.beginPath();
         context.rect(x, y, this.width, this.height);
         context.fillStyle = "#c0c0c0";
@@ -275,25 +283,30 @@ class Rectangle {
         context.stroke();
     }
 }
-const r1 = new Rectangle();
+
+const r1: Rectangle = new Rectangle();
 r1.createRectangle(300, 200);
 r1.drawRectangle(300, 650, true);
+
 // c)
-const r2 = new Rectangle();
+const r2: Rectangle = new Rectangle();
 r2.createRandomRec();
 r2.drawRectangle(20, 700, false);
+
 // d)
-const r3 = new Rectangle();
+const r3: Rectangle = new Rectangle();
 r3.createRandomRec();
 r3.drawRectangle(450, 800, true, "#5ac18e");
+
 // e)
-const r4 = new Rectangle();
+const r4: Rectangle = new Rectangle();
 r4.createRandomRec();
-const r5 = new Rectangle();
+const r5: Rectangle = new Rectangle();
 r5.createRandomRec();
-const r6 = new Rectangle();
+const r6: Rectangle = new Rectangle();
 r6.createRandomRec();
-let rectangles = new Array();
+
+let rectangles: Array<Rectangle> = new Array();
 rectangles = [r4, r5, r6];
-rectangles.forEach(rec => rec.drawRandom());
+rectangles.forEach(rec => rec.drawRandom());*/ 
 //# sourceMappingURL=script.js.map

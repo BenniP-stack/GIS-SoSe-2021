@@ -1,8 +1,8 @@
 
-//1. a)
+/*//1. a)
 
 
-/*
+
 function min(einhorn: number[]): void {
     let zwischenspeicher: number = einhorn[0];
 
@@ -265,7 +265,7 @@ function createRect() {
 }
 
 createRect();
-*/
+
 
 class Rectangle {
     width: number;
@@ -336,4 +336,4 @@ r6.createRandomRec();
 
 let rectangles: Array<Rectangle> = new Array();
 rectangles = [r4, r5, r6];
-rectangles.forEach(rec => rec.drawRandom());
+rectangles.forEach(rec => rec.drawRandom());*/
