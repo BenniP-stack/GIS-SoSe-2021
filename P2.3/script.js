@@ -3,7 +3,7 @@ var Aufgabe01;
 (function (Aufgabe01) {
     document.addEventListener("DOMContentLoaded", function () {
         const newRec = document.getElementById("newRec"); //button 1
-        const recContainer = document.querySelector(".recContainer"); //erster recContainer wird gewählt
+        const recContainer = document.querySelector(".anzeigefläche"); //erster recContainer wird gewählt
         const reset = document.getElementById("reset"); //button 2
         class Rectangle {
             createRandomRec() {
@@ -35,4 +35,31 @@ var Aufgabe01;
         reset.addEventListener("click", clearRecContainer);
     });
 })(Aufgabe01 || (Aufgabe01 = {}));
+var Aufgabe02;
+(function (Aufgabe02) {
+    const create = document.getElementById("create");
+    const save = document.getElementById("save");
+    class Person {
+        setHead(_head) {
+            this.head = _head;
+        }
+        setBody(_body) {
+            this.body = _body;
+        }
+        setLegs(_legs) {
+            this.legs = _legs;
+        }
+        setName(_name) {
+            this.name = _name;
+        }
+    }
+    let person;
+    function setPerson() {
+        const _person = new Person();
+        person = _person;
+    }
+    function createPerson() { } //Darstellung der vom Nutzer ausgewählten Optionen
+    save.addEventListener("click", setPerson);
+    create.addEventListener("click", createPerson); //"Create" als abschließender Schritt, "Präsentation" des Ergebnisses auf der Mainpage
+})(Aufgabe02 || (Aufgabe02 = {}));
 //# sourceMappingURL=script.js.map
