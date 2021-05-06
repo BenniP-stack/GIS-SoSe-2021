@@ -1,19 +1,24 @@
 "use strict";
-var Aufgabe01;
-(function (Aufgabe01) {
-    document.addEventListener("DOMContentLoaded", function () {
-        const newRec = document.getElementById("newRec"); //button 1
-        const recContainer = document.querySelector(".anzeigefläche"); //erster recContainer wird gewählt
-        const reset = document.getElementById("reset"); //button 2
+/*namespace Aufgabe01 {
+    document.addEventListener("DOMContentLoaded", function (): void {
+
+        const newRec: HTMLElement = document.getElementById("newRec");   //button 1
+        const recContainer: HTMLElement = document.querySelector(".anzeigefläche");  //erster recContainer wird gewählt
+        const reset: HTMLElement = document.getElementById("reset"); //button 2
+
         class Rectangle {
-            createRandomRec() {
+            width: number;
+            height: number;
+
+            createRandomRec(): void {
                 this.width = Math.floor(Math.random() * 100 + 20);
                 this.height = Math.floor(Math.random() * 100 + 20);
             }
-            drawRandom(rec) {
-                let x = Math.floor(Math.random() * 700);
-                let y = Math.floor(Math.random() * 300 + 100);
-                let recDiv = document.createElement("div");
+
+            drawRandom(rec: Rectangle): void {
+                let x: number = Math.floor(Math.random() * 700);
+                let y: number = Math.floor(Math.random() * 300 + 100);
+                let recDiv: HTMLDivElement = document.createElement("div");
                 recDiv.style.width = rec.width + "px";
                 recDiv.style.height = rec.height + "px";
                 recDiv.style.top = y + "px";
@@ -23,43 +28,60 @@ var Aufgabe01;
                 recContainer.appendChild(recDiv);
             }
         }
-        function addNewRec() {
-            let rec = new Rectangle();
+
+        function addNewRec(): void {
+            let rec: Rectangle = new Rectangle();
             rec.createRandomRec();
             rec.drawRandom(rec);
         }
-        function clearRecContainer() {
+
+        function clearRecContainer(): void {
             recContainer.innerHTML = "";
         }
+
         newRec.addEventListener("click", addNewRec);
         reset.addEventListener("click", clearRecContainer);
+
     });
-})(Aufgabe01 || (Aufgabe01 = {}));
-var Aufgabe02;
-(function (Aufgabe02) {
-    const create = document.getElementById("create");
-    const save = document.getElementById("save");
+}
+
+namespace Aufgabe02 {
+
+    const create: HTMLElement = document.getElementById("create");
+    const save: HTMLElement = document.getElementById("save");
+
     class Person {
-        setHead(_head) {
+        head: string;
+        body: string;
+        legs: string;
+        name: string;
+
+        setHead(_head: string): void {
             this.head = _head;
         }
-        setBody(_body) {
+
+        setBody(_body: string): void {
             this.body = _body;
         }
-        setLegs(_legs) {
+
+        setLegs(_legs: string): void {
             this.legs = _legs;
         }
-        setName(_name) {
+
+        setName(_name: string): void {
             this.name = _name;
         }
     }
-    let person;
-    function setPerson() {
-        const _person = new Person();
+    let person: Person;
+
+    function setPerson(): void {
+        const _person: Person = new Person();
         person = _person;
     }
-    function createPerson() { } //Darstellung der vom Nutzer ausgewählten Optionen
+
+    function createPerson(): void {} //Darstellung der vom Nutzer ausgewählten Optionen
+
     save.addEventListener("click", setPerson);
     create.addEventListener("click", createPerson); //"Create" als abschließender Schritt, "Präsentation" des Ergebnisses auf der Mainpage
-})(Aufgabe02 || (Aufgabe02 = {}));
+}*/ 
 //# sourceMappingURL=script.js.map

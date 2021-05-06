@@ -1,4 +1,4 @@
-namespace Aufgabe01 {
+/*namespace Aufgabe01 {
     document.addEventListener("DOMContentLoaded", function (): void {
 
         const newRec: HTMLElement = document.getElementById("newRec");   //button 1
@@ -82,4 +82,4 @@ namespace Aufgabe02 {
 
     save.addEventListener("click", setPerson);
     create.addEventListener("click", createPerson); //"Create" als abschließender Schritt, "Präsentation" des Ergebnisses auf der Mainpage
-}
+}*/
