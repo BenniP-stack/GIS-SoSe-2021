@@ -1,7 +1,5 @@
 namespace Aufgabe1 {
     // 1. a)
-
-
     function min(..._zahlen: number[]): number {      //auch mit Infinity als Vergleichswert beim ersten Durchlauf möglich
         let zwischenspeicher: number = _zahlen[0];
 
@@ -27,7 +25,8 @@ namespace Aufgabe1 {
             return isEven(x - 2);
     }
 
-    isEven(-1); //50 -> 0, 75 -> 1
+    isEven(-1); 
+    //50 -> 0, 75 -> 1
     //-1 -> -3, da die ersten beiden if statements nie TRUE sind, und so nur das letzte else statement ausgelöst wird.
     //Lösungsansatz: Konsolenausgabe verändern, oder Datentyp der Rückgabe verändern, sodass negative Zahlen zurückgegeben werden können.
 

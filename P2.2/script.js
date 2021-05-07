@@ -22,7 +22,7 @@ var Aufgabe1;
         else
             return isEven(x - 2);
     }
-    isEven(-1); //50 -> 0, 75 -> 1
+    isEven(-1);
     let student1 = { matrikelnummer: 267049, name: "Benni", studienfach: "OMB" };
     let student2 = { matrikelnummer: 266636, name: "Tabea", studienfach: "OMB" };
     let student3 = { matrikelnummer: 278451, name: "Sebi", studienfach: "OMB" };

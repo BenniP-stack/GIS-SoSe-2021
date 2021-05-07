@@ -53,13 +53,7 @@ body {
     box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-.recContainer {
-    background-color: lightgray;
-    height: 70vh;
-    position: relative;
-}
-
-.anzeigefläche {
+.anzeigeflaeche {
     background-color: lightgray;
     height: 70vh;
     position: relative;
