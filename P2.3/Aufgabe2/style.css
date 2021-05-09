@@ -33,7 +33,8 @@ body {
 }
 
 #nextHead,
-#save {
+#save,
+#create {
     background-color: cornflowerblue;
     height: auto;
     width: 100px;
