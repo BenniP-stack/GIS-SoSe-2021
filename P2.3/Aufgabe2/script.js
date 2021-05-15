@@ -1,46 +1,111 @@
 "use strict";
-var Aufgabe02;
-(function (Aufgabe02) {
-    //const save: HTMLElement = document.getElementById("save");
-    const anzeigeflaeche = document.getElementById("anzeigeflaeche");
-    class Person {
-        setHead(_head) {
-            this.head = _head;
-        }
-        setBody(_body) {
-            this.body = _body;
-        }
-        setLegs(_legs) {
-            this.legs = _legs;
-        }
-        setName(_name) {
-            this.name = _name;
-        }
-    }
-    let person = new Person();
-    //nextHead.addEventListener("click", auswahlKopf); //"Create" als erster Schritt
-    for (let i = 0; i < kopfBilder.length; i++) {
+var Aufgabe2;
+(function (Aufgabe2) {
+    const anzeigeflaeche = document.querySelector(".anzeigeflaeche");
+    const headButton = document.getElementById("showHead");
+    //const torsoButton: HTMLElement = document.getElementById("showTorso"); //getElementById seems to work best
+    //const legButton: HTMLElement = document.getElementById("showLegs");
+    const currentStep = anzeigeflaeche ? anzeigeflaeche.id : "";
+    const selection = document.getElementById("selection");
+    let head = { head: null };
+    let torso = { torso: null };
+    let legs = { legs: null };
+    //create img elemente
+    function createImgElement(url, part) {
         const imgElem = document.createElement("img");
-        imgElem.src = kopfBilder[i];
-        imgElem.className = "auswahlbilder";
-        imgElem.id = String(i + 1);
-        anzeigeflaeche.appendChild(imgElem);
+        imgElem.src = url;
+        imgElem.id = part;
+        return imgElem;
     }
-    const optionsHead = document.querySelectorAll(".auswahlbilder");
-    function highlightSelection(element) {
-        optionsHead.forEach(element => {
-            element.style.border = "4px solid transparent";
-            element.style.boxShadow = "2px 3px 7px rgba(0, 0, 0, 0.3)";
+    //data von data.ts einbindung
+    function buildPageFromData(buildData) {
+        const jsonData = JSON.parse(buildData);
+        const currentData = jsonData[currentStep];
+        for (const bodyPart in currentData) {
+            if (Object.prototype.hasOwnProperty.call(currentData, bodyPart)) {
+                const bodyPartImgURL = currentData[bodyPart];
+                const imgElem = createImgElement(bodyPartImgURL, bodyPart);
+                imgElem.classList.add("pic-reel");
+                anzeigeflaeche.appendChild(imgElem);
+            }
+        }
+    }
+    buildPageFromData(Aufgabe2.data);
+    //select, store and show chosen elements
+    function selectElem(id) {
+        let url = "";
+        switch (currentStep) {
+            case "heads":
+                url = getURL("heads", id);
+                head = { head: url };
+                localStorage.setItem("head", url);
+                break;
+            case "torsos":
+                url = getURL("torsos", id);
+                torso = { torso: url };
+                localStorage.setItem("torso", url);
+                break;
+            case "legs":
+                url = getURL("legs", id);
+                legs = { legs: url };
+                localStorage.setItem("legs", url);
+                break;
+            default:
+                break;
+        }
+        paint();
+    }
+    function getURL(bodypart, id) {
+        const jsonData = JSON.parse(Aufgabe2.data);
+        const chosenURL = jsonData[bodypart][id];
+        return chosenURL;
+    }
+    function showName(name) {
+        if (name == "") {
+            return null;
+        }
+        selection.classList.add("show");
+        const pElem = document.createElement("p");
+        pElem.className = "nameOutput";
+        selection.appendChild(pElem);
+        pElem.innerHTML = name;
+    }
+    function showSelected(url) {
+        if (url == null) {
+            return null;
+        }
+        selection.classList.add("show");
+        const imgElem = createImgElement(url);
+        selection.appendChild(imgElem);
+    }
+    function paint() {
+        selection.innerHTML = "";
+        showName(localStorage.getItem("name"));
+        showSelected(localStorage.getItem("head"));
+        showSelected(localStorage.getItem("torso"));
+        showSelected(localStorage.getItem("legs"));
+    }
+    paint();
+    const optionsHead = document.querySelectorAll(".anzeigeflaeche");
+    function highlightSelection(elem) {
+        optionsHead.forEach(elem => {
+            elem.classList.remove("highlighted");
         });
-        element.style.border = "4px solid #000";
-        element.style.boxShadow = "3px 4px 7px rgba(0, 0, 0, 0.7)";
+        elem.classList.add("highlighted");
     }
-    optionsHead.forEach(element => {
-        element.addEventListener("click", function () {
-            person.setHead(element.id);
-            highlightSelection(element);
-            console.log(person.head);
+    //eventlistener
+    optionsHead.forEach(elem => {
+        elem.addEventListener("click", function () {
+            selectElem(elem.id);
+            highlightSelection(elem);
         });
     });
-})(Aufgabe02 || (Aufgabe02 = {}));
+    if (name != null) {
+        name.addEventListener("input", function () {
+            let input = name.value;
+            localStorage.setItem("name", input);
+            paint();
+        });
+    }
+})(Aufgabe2 || (Aufgabe2 = {}));
 //# sourceMappingURL=script.js.map
