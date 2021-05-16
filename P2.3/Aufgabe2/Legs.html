@@ -5,26 +5,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legs</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script defer src="person.ts"></script>
     <script defer src="data.js"></script>
+    <script defer src="person.js"></script>
     <script defer src="script.js"></script>
-
+    <title>Kerle Beine</title>
 </head>
 
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Kopf.html">Kopf</a></li>
+                <li><a href="Torso.html"> Körper </a></li>
+                <li><a href="Legs.html"> Beine </a></li>
+                <li><a href="total.html"> Fertig! </a></li>
+            </ul>
+        </nav>
+        <div class="siteHeading">
+            <h1>Pack' dir dein Kerle zemme!</h1>
+        </div>
+    </header>
+
     <section class="content">
+        <h2>Wähle deine Beine</h2>
+
         <div class="container">
-            <button id="showLegs">
-                Show Legs
-            </button>
+            <div class="anzeigeflaeche" id="legs">
+
+            </div>
+
+            <div id="selection">
+
+            </div>
         </div>
 
-        <div id="anzeigeflaeche">
 
+        <div class="containerIndex">
+            <a class="arrow" href="Total.html">
+                <button>Weiter</button>
+            </a>
         </div>
     </section>
+
 </body>
 
 </html>

@@ -2,18 +2,14 @@ interface Person {
     head: string;
     body: string;
     legs: string;
-    name: string;
 }
 
-interface _head {
+interface Head {
     head: string;
 }
-interface _torso {
+interface Torso {
     torso: string;
 }
-interface _legs {
+interface Legs {
     legs: string;
-}
-interface _name {
-    name: string;
 }

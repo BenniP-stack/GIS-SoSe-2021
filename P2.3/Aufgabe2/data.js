@@ -3,19 +3,19 @@ var Aufgabe2;
 (function (Aufgabe2) {
     Aufgabe2.parts = {
         heads: [
-            { 1: "images/Heads/kopf.jpg" },
-            { 2: "images/Heads/kageyama1.jpg" },
-            { 3: "images/Heads/kageyama2.jpg" }
+            "images/Heads/kopf.jpg",
+            "images/Heads/kageyama1.jpg",
+            "images/Heads/kageyama2.jpg"
         ],
         torsos: [
-            { 1: "images/Torso/Cursed_Torso.jpg" },
-            { 2: "images/Torso/Cursed_Torso2.jpg" },
-            { 3: "images/Torso/Cursed_Torso3.jpg" }
+            "images/Torso/Cursed_Torso.jpg",
+            "images/Torso/Cursed_Torso2.jpg",
+            "images/Torso/Cursed_Torso3.jpg"
         ],
         legs: [
-            { 1: "images/Legs/Cursed_Legs.jpg" },
-            { 2: "images/Legs/Cursed_Legs2.jpg" },
-            { 3: "images/Legs/Cursed_Legs3.jpg" }
+            "images/Legs/Cursed_Legs.jpg",
+            "images/Legs/Cursed_Legs2.jpg",
+            "images/Legs/Cursed_Legs3.jpg"
         ]
     };
     Aufgabe2.data = JSON.stringify(Aufgabe2.parts);

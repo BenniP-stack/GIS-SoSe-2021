@@ -2,14 +2,10 @@
 var Aufgabe2;
 (function (Aufgabe2) {
     const anzeigeflaeche = document.querySelector(".anzeigeflaeche");
-    const headButton = document.getElementById("showHead");
     //const torsoButton: HTMLElement = document.getElementById("showTorso"); //getElementById seems to work best
     //const legButton: HTMLElement = document.getElementById("showLegs");
     const currentStep = anzeigeflaeche ? anzeigeflaeche.id : "";
     const selection = document.getElementById("selection");
-    let head = { head: null };
-    let torso = { torso: null };
-    let legs = { legs: null };
     //create img elemente
     function createImgElement(url, part) {
         const imgElem = document.createElement("img");
@@ -17,10 +13,10 @@ var Aufgabe2;
         imgElem.id = part;
         return imgElem;
     }
+    let propertyData = JSON.parse(Aufgabe2.data);
     //data von data.ts einbindung
     function buildPageFromData(buildData) {
-        const jsonData = JSON.parse(buildData);
-        const currentData = jsonData[currentStep];
+        const currentData = buildData[currentStep];
         for (const bodyPart in currentData) {
             if (Object.prototype.hasOwnProperty.call(currentData, bodyPart)) {
                 const bodyPartImgURL = currentData[bodyPart];
@@ -30,25 +26,23 @@ var Aufgabe2;
             }
         }
     }
-    buildPageFromData(Aufgabe2.data);
+    buildPageFromData(propertyData);
     //select, store and show chosen elements
     function selectElem(id) {
+        let _id = Number(id);
         let url = "";
         switch (currentStep) {
             case "heads":
-                url = getURL("heads", id);
-                head = { head: url };
-                localStorage.setItem("head", url);
+                url = getURL("heads", _id);
+                sessionStorage.setItem("head", url);
                 break;
             case "torsos":
-                url = getURL("torsos", id);
-                torso = { torso: url };
-                localStorage.setItem("torso", url);
+                url = getURL("torsos", _id);
+                sessionStorage.setItem("torso", url);
                 break;
             case "legs":
-                url = getURL("legs", id);
-                legs = { legs: url };
-                localStorage.setItem("legs", url);
+                url = getURL("legs", _id);
+                sessionStorage.setItem("legs", url);
                 break;
             default:
                 break;
@@ -56,19 +50,8 @@ var Aufgabe2;
         paint();
     }
     function getURL(bodypart, id) {
-        const jsonData = JSON.parse(Aufgabe2.data);
-        const chosenURL = jsonData[bodypart][id];
+        const chosenURL = propertyData[bodypart][id];
         return chosenURL;
-    }
-    function showName(name) {
-        if (name == "") {
-            return null;
-        }
-        selection.classList.add("show");
-        const pElem = document.createElement("p");
-        pElem.className = "nameOutput";
-        selection.appendChild(pElem);
-        pElem.innerHTML = name;
     }
     function showSelected(url) {
         if (url == null) {
@@ -80,13 +63,12 @@ var Aufgabe2;
     }
     function paint() {
         selection.innerHTML = "";
-        showName(localStorage.getItem("name"));
-        showSelected(localStorage.getItem("head"));
-        showSelected(localStorage.getItem("torso"));
-        showSelected(localStorage.getItem("legs"));
+        showSelected(sessionStorage.getItem("head"));
+        showSelected(sessionStorage.getItem("torso"));
+        showSelected(sessionStorage.getItem("legs"));
     }
     paint();
-    const optionsHead = document.querySelectorAll(".anzeigeflaeche");
+    const optionsHead = document.querySelectorAll(".pic-reel");
     function highlightSelection(elem) {
         optionsHead.forEach(elem => {
             elem.classList.remove("highlighted");
@@ -100,12 +82,5 @@ var Aufgabe2;
             highlightSelection(elem);
         });
     });
-    if (name != null) {
-        name.addEventListener("input", function () {
-            let input = name.value;
-            localStorage.setItem("name", input);
-            paint();
-        });
-    }
 })(Aufgabe2 || (Aufgabe2 = {}));
 //# sourceMappingURL=script.js.map
