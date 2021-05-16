@@ -83,3 +83,7 @@ li {
 .selection {
     vertical-align: auto;
 }
+
+.show {
+    flex-direction: column;
+}
