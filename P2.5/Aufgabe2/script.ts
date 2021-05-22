@@ -18,14 +18,6 @@ namespace Aufgabe2 {
     interface Property {
         [data: string]: string[];
     }
-
-    async function communicate(_url: RequestInfo): Promise<void> {
-        let response: Response = await fetch(_url);
-        //console.log("Response", response);
-        let antwort: string = await response.json();
-        console.log(antwort);
-    }
-
     let propertyData: Property = JSON.parse(data);
 
     //data von data.ts einbindung
@@ -43,8 +35,18 @@ namespace Aufgabe2 {
     }
     buildPageFromData(propertyData);
 
-    //select, store and show chosen elements
+    //data aus data.json holen
+    async function getData(): Promise<void> {
+        let response: Response = await fetch("./data.json") 
+        .then(response => response.json());
+        console.log("Response:", response);
+    }
 
+
+
+
+
+    //select, store and show chosen elements
     function selectElem(id: string): void {
         let _id: number = Number(id);
         let url: string = "";

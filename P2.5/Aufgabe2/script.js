@@ -13,12 +13,6 @@ var Aufgabe2;
         imgElem.id = part;
         return imgElem;
     }
-    async function communicate(_url) {
-        let response = await fetch(_url);
-        //console.log("Response", response);
-        let antwort = await response.json();
-        console.log(antwort);
-    }
     let propertyData = JSON.parse(Aufgabe2.data);
     //data von data.ts einbindung
     function buildPageFromData(buildData) {
@@ -33,6 +27,12 @@ var Aufgabe2;
         }
     }
     buildPageFromData(propertyData);
+    //data aus data.json holen
+    async function getData() {
+        let response = await fetch("./data.json")
+            .then(response => response.json());
+        console.log("Response:", response);
+    }
     //select, store and show chosen elements
     function selectElem(id) {
         let _id = Number(id);
