@@ -1,46 +1,42 @@
-namespace Aufgabe2 {
-
-    const anzeigeflaeche: HTMLElement = document.querySelector(".anzeigeflaeche");
+"use strict";
+var Aufgabe2;
+(function (Aufgabe2) {
+    const anzeigeflaeche = document.querySelector(".anzeigeflaeche");
     //const torsoButton: HTMLElement = document.getElementById("showTorso"); //getElementById seems to work best
     //const legButton: HTMLElement = document.getElementById("showLegs");
-    const currentStep: string = anzeigeflaeche ? anzeigeflaeche.id : "";
-    const selection: HTMLElement = document.getElementById("selection");
-
-
+    const currentStep = anzeigeflaeche ? anzeigeflaeche.id : "";
+    const selection = document.getElementById("selection");
     //create img elemente
-    function createImgElement(url: string, part?: string): HTMLImageElement {
-        const imgElem: HTMLImageElement = document.createElement("img");
+    function createImgElement(url, part) {
+        const imgElem = document.createElement("img");
         imgElem.src = url;
         imgElem.id = part;
         return imgElem;
     }
-
-    interface Property {
-        [data: string]: string[];
+    async function communicate(_url) {
+        let response = await fetch(_url);
+        //console.log("Response", response);
+        let antwort = await response.json();
+        console.log(antwort);
     }
-
-    let propertyData: Property = JSON.parse(data);
-
+    let propertyData = JSON.parse(Aufgabe2.data);
     //data von data.ts einbindung
-    function buildPageFromData(buildData: Property): void {
-        const currentData: string[] = buildData[currentStep];
-
+    function buildPageFromData(buildData) {
+        const currentData = buildData[currentStep];
         for (const bodyPart in currentData) {
             if (Object.prototype.hasOwnProperty.call(currentData, bodyPart)) {
-                const bodyPartImgURL: string = currentData[bodyPart];
-                const imgElem: HTMLImageElement = createImgElement(bodyPartImgURL, bodyPart);
+                const bodyPartImgURL = currentData[bodyPart];
+                const imgElem = createImgElement(bodyPartImgURL, bodyPart);
                 imgElem.classList.add("pic-reel");
                 anzeigeflaeche.appendChild(imgElem);
             }
         }
     }
     buildPageFromData(propertyData);
-
     //select, store and show chosen elements
-
-    function selectElem(id: string): void {
-        let _id: number = Number(id);
-        let url: string = "";
+    function selectElem(id) {
+        let _id = Number(id);
+        let url = "";
         switch (currentStep) {
             case "heads":
                 url = getURL("heads", _id);
@@ -59,43 +55,38 @@ namespace Aufgabe2 {
         }
         paint();
     }
-
-    function getURL(bodypart: string, id: number): string {
-        const chosenURL: string = propertyData[bodypart][id];
+    function getURL(bodypart, id) {
+        const chosenURL = propertyData[bodypart][id];
         return chosenURL;
     }
-
-    function showSelected(url: string): void {
+    function showSelected(url) {
         if (url == null) {
             return null;
         }
         selection.classList.add("show");
-        const imgElem: HTMLImageElement = createImgElement(url);
+        const imgElem = createImgElement(url);
         selection.appendChild(imgElem);
     }
-
-    function paint(): void {
+    function paint() {
         selection.innerHTML = "";
         showSelected(sessionStorage.getItem("head"));
         showSelected(sessionStorage.getItem("torso"));
         showSelected(sessionStorage.getItem("legs"));
     }
     paint();
-
-    const optionsHead: NodeListOf<HTMLElement> = document.querySelectorAll(".pic-reel");
-
-    function highlightSelection(elem: HTMLElement): void {
+    const optionsHead = document.querySelectorAll(".pic-reel");
+    function highlightSelection(elem) {
         optionsHead.forEach(elem => {
             elem.classList.remove("highlighted");
         });
         elem.classList.add("highlighted");
     }
-
     //eventlistener
     optionsHead.forEach(elem => {
-        elem.addEventListener("click", function (): void {
+        elem.addEventListener("click", function () {
             selectElem(elem.id);
             highlightSelection(elem);
         });
     });
-}
+})(Aufgabe2 || (Aufgabe2 = {}));
+//# sourceMappingURL=script.js.map
