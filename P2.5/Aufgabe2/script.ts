@@ -11,14 +11,15 @@ namespace Aufgabe2 {
     let data: BData;
     async function communicate(_url: RequestInfo): Promise<void> {
         let response: Response = await fetch(_url);
+        console.log(Response, response);
         let antwort: BData = await response.json();
         data = antwort;
-        buildPageFromData(antwort);
+        buildPageFromData(data);
         console.log(antwort);
     }
 
-
     communicate("https://raw.githubusercontent.com/BenniP-stack/GIS-SoSe-2021/main/P2.5/Aufgabe2/data.json");
+
 
     //create img elemente
     function createImgElement(url: string, part?: string): HTMLImageElement {
@@ -29,7 +30,7 @@ namespace Aufgabe2 {
     }
 
     function buildPageFromData(buildData: BData): void {
-        const currentData: String = buildData[currentStep];
+        const currentData: string[] = buildData[currentStep];
 
         for (const bodyPart in currentData) {
             if (Object.prototype.hasOwnProperty.call(currentData, bodyPart)) {
@@ -39,11 +40,25 @@ namespace Aufgabe2 {
                 anzeigeflaeche.appendChild(imgElem);
             }
         }
+        const optionsHead: NodeListOf<HTMLElement> = document.querySelectorAll(".pic-reel");
+
+        function highlightSelection(elem: HTMLElement): void {
+            optionsHead.forEach(elem => {
+                elem.classList.remove("highlighted");
+            });
+            elem.classList.add("highlighted");
+        }
+
+        //eventlistener
+        optionsHead.forEach(elem => {
+            elem.addEventListener("click", function (): void {
+                selectElem(elem.id);
+                highlightSelection(elem);
+            });
+        });
     }
 
-
     //select, store and show chosen elements
-
     function selectElem(id: string): void {
         let _id: number = Number(id);
         let url: string = "";
@@ -86,28 +101,11 @@ namespace Aufgabe2 {
         showSelected(sessionStorage.getItem("torso"));
         showSelected(sessionStorage.getItem("legs"));
     }
-    paint();
 
-    const optionsHead: NodeListOf<HTMLElement> = document.querySelectorAll(".pic-reel");
 
-    function highlightSelection(elem: HTMLElement): void {
-        optionsHead.forEach(elem => {
-            elem.classList.remove("highlighted");
-        });
-        elem.classList.add("highlighted");
-    }
-
-    //eventlistener
-    optionsHead.forEach(elem => {
-        elem.addEventListener("click", function (): void {
-            selectElem(elem.id);
-            highlightSelection(elem);
-        });
-    });
 
     if (heroku) {
-        communicateHeroku("https://gis-communication.herokuapp.com");
-
+    
         interface HirokuResponse {
             [key: string]: string;
         }
@@ -135,5 +133,6 @@ namespace Aufgabe2 {
                 p.innerHTML = stringResponse.message;
             }
         }
+        communicateHeroku("https://gis-communication.herokuapp.com");
     }
 }

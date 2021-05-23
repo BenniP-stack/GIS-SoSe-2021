@@ -1,17 +1,17 @@
 {
-    "heads": [{
-        "image1": "images/Heads/kopf.jpg",
-        "image2": "images/Heads/kageyama1.jpg",
-        "image3": "images/Heads/kageyama2.jpg"
-    }],
-    "torsos": [{
-        "image1": "images/Torso/Cursed_Torso",
-        "image2": "images/Torso/Cursed_Torso2",
-        "image3": "images/Torso/Cursed_Torso3"
-    }],
-    "legs": [{
-        "image1": "images/Legs/Cursed_Legs",
-        "image2": "images/Legs/Cursed_Legs2",
-        "image3": "images/Legs/Cursed_Legs3"
-    }]
+    "heads": [
+        "images/Heads/kopf.jpg",
+        "images/Heads/kageyama1.jpg",
+        "images/Heads/kageyama2.jpg"
+    ],
+    "torsos": [
+        "images/Torso/Cursed_Torso",
+        "images/Torso/Cursed_Torso2",
+        "images/Torso/Cursed_Torso3"
+    ],
+    "legs": [
+        "images/Legs/Cursed_Legs",
+        "images/Legs/Cursed_Legs2",
+        "images/Legs/Cursed_Legs3"
+    ]
 }
