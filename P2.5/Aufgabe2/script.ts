@@ -18,7 +18,7 @@ namespace Aufgabe2 {
         console.log(antwort);
     }
 
-    communicate("https://raw.githubusercontent.com/BenniP-stack/GIS-SoSe-2021/main/P2.5/Aufgabe2/data.json");
+    communicate("https://bennip-stack.github.io/GIS-SoSe-2021/P2.5/Aufgabe2/data.json");
 
 
     //create img elemente

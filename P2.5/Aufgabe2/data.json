@@ -5,13 +5,13 @@
         "images/Heads/kageyama2.jpg"
     ],
     "torsos": [
-        "images/Torso/Cursed_Torso",
-        "images/Torso/Cursed_Torso2",
-        "images/Torso/Cursed_Torso3"
+        "images/Torso/Cursed_Torso.jpg",
+        "images/Torso/Cursed_Torso2.jpg",
+        "images/Torso/Cursed_Torso3.jpg"
     ],
     "legs": [
-        "images/Legs/Cursed_Legs",
-        "images/Legs/Cursed_Legs2",
-        "images/Legs/Cursed_Legs3"
+        "images/Legs/Cursed_Legs.jpg",
+        "images/Legs/Cursed_Legs2.jpg",
+        "images/Legs/Cursed_Legs3.jpg"
     ]
 }
