@@ -6,6 +6,17 @@ var Aufgabe2;
     //const legButton: HTMLElement = document.getElementById("showLegs");
     const currentStep = anzeigeflaeche ? anzeigeflaeche.id : "";
     const selection = document.getElementById("selection");
+    const heroku = document.getElementById("heroku");
+    //async function
+    let data;
+    async function communicate(_url) {
+        let response = await fetch(_url);
+        let antwort = await response.json();
+        data = antwort;
+        buildPageFromData(antwort);
+        console.log(antwort);
+    }
+    communicate("https://raw.githubusercontent.com/BenniP-stack/GIS-SoSe-2021/main/P2.5/Aufgabe2/data.json");
     //create img elemente
     function createImgElement(url, part) {
         const imgElem = document.createElement("img");
@@ -13,8 +24,6 @@ var Aufgabe2;
         imgElem.id = part;
         return imgElem;
     }
-    let propertyData = JSON.parse(Aufgabe2.data);
-    //data von data.ts einbindung
     function buildPageFromData(buildData) {
         const currentData = buildData[currentStep];
         for (const bodyPart in currentData) {
@@ -25,13 +34,6 @@ var Aufgabe2;
                 anzeigeflaeche.appendChild(imgElem);
             }
         }
-    }
-    buildPageFromData(propertyData);
-    //data aus data.json holen
-    async function getData() {
-        let response = await fetch("./data.json")
-            .then(response => response.json());
-        console.log("Response:", response);
     }
     //select, store and show chosen elements
     function selectElem(id) {
@@ -56,7 +58,7 @@ var Aufgabe2;
         paint();
     }
     function getURL(bodypart, id) {
-        const chosenURL = propertyData[bodypart][id];
+        const chosenURL = data[bodypart][id];
         return chosenURL;
     }
     function showSelected(url) {
@@ -88,5 +90,29 @@ var Aufgabe2;
             highlightSelection(elem);
         });
     });
+    if (heroku) {
+        communicateHeroku("https://gis-communication.herokuapp.com");
+        async function communicateHeroku(_url) {
+            const kerle = { head: sessionStorage.getItem("head"), body: sessionStorage.getItem("head"), legs: sessionStorage.getItem("head") };
+            let query = new URLSearchParams(kerle);
+            _url = _url + "?" + query.toString();
+            const response = await fetch(_url);
+            const stringResponse = await response.json();
+            const p = document.createElement("p");
+            const h = document.createElement("h3"); //h1 und h2 sind schon in use
+            heroku.className = "response";
+            heroku.appendChild(h);
+            h.innerHTML = "Server Antwort:";
+            heroku.appendChild(p);
+            if (stringResponse.error) {
+                p.className = "error";
+                p.innerHTML = stringResponse.error;
+            }
+            else {
+                p.className = "success";
+                p.innerHTML = stringResponse.message;
+            }
+        }
+    }
 })(Aufgabe2 || (Aufgabe2 = {}));
 //# sourceMappingURL=script.js.map

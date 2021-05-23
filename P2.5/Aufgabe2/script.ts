@@ -5,7 +5,20 @@ namespace Aufgabe2 {
     //const legButton: HTMLElement = document.getElementById("showLegs");
     const currentStep: string = anzeigeflaeche ? anzeigeflaeche.id : "";
     const selection: HTMLElement = document.getElementById("selection");
+    const heroku: HTMLElement = document.getElementById("heroku");
 
+    //async function
+    let data: BData;
+    async function communicate(_url: RequestInfo): Promise<void> {
+        let response: Response = await fetch(_url);
+        let antwort: BData = await response.json();
+        data = antwort;
+        buildPageFromData(antwort);
+        console.log(antwort);
+    }
+
+
+    communicate("https://raw.githubusercontent.com/BenniP-stack/GIS-SoSe-2021/main/P2.5/Aufgabe2/data.json");
 
     //create img elemente
     function createImgElement(url: string, part?: string): HTMLImageElement {
@@ -15,14 +28,8 @@ namespace Aufgabe2 {
         return imgElem;
     }
 
-    interface Property {
-        [data: string]: string[];
-    }
-    let propertyData: Property = JSON.parse(data);
-
-    //data von data.ts einbindung
-    function buildPageFromData(buildData: Property): void {
-        const currentData: string[] = buildData[currentStep];
+    function buildPageFromData(buildData: BData): void {
+        const currentData: String = buildData[currentStep];
 
         for (const bodyPart in currentData) {
             if (Object.prototype.hasOwnProperty.call(currentData, bodyPart)) {
@@ -33,20 +40,10 @@ namespace Aufgabe2 {
             }
         }
     }
-    buildPageFromData(propertyData);
-
-    //data aus data.json holen
-    async function getData(): Promise<void> {
-        let response: Response = await fetch("./data.json") 
-        .then(response => response.json());
-        console.log("Response:", response);
-    }
-
-
-
 
 
     //select, store and show chosen elements
+
     function selectElem(id: string): void {
         let _id: number = Number(id);
         let url: string = "";
@@ -70,7 +67,7 @@ namespace Aufgabe2 {
     }
 
     function getURL(bodypart: string, id: number): string {
-        const chosenURL: string = propertyData[bodypart][id];
+        const chosenURL: string = data[bodypart][id];
         return chosenURL;
     }
 
@@ -107,4 +104,36 @@ namespace Aufgabe2 {
             highlightSelection(elem);
         });
     });
+
+    if (heroku) {
+        communicateHeroku("https://gis-communication.herokuapp.com");
+
+        interface HirokuResponse {
+            [key: string]: string;
+        }
+
+        async function communicateHeroku(_url: RequestInfo): Promise<void> {
+            const kerle: object = { head: sessionStorage.getItem("head"), body: sessionStorage.getItem("head"), legs: sessionStorage.getItem("head") };
+            let query: URLSearchParams = new URLSearchParams(<any>kerle);
+            _url = _url + "?" + query.toString();
+
+            const response: Response = await fetch(_url);
+            const stringResponse: HirokuResponse = await response.json();
+            const p: HTMLParagraphElement = document.createElement("p");
+            const h: HTMLParagraphElement = document.createElement("h3"); //h1 und h2 sind schon in use
+
+            heroku.className = "response";
+            heroku.appendChild(h);
+            h.innerHTML = "Server Antwort:";
+            heroku.appendChild(p);
+
+            if (stringResponse.error) {
+                p.className = "error";
+                p.innerHTML = stringResponse.error;
+            } else {
+                p.className = "success";
+                p.innerHTML = stringResponse.message;
+            }
+        }
+    }
 }
