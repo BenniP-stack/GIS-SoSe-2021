@@ -17,7 +17,7 @@ var Aufgabe2;
         buildPageFromData(data);
         console.log(antwort);
     }
-    communicate("https://bennip-stack.github.io/GIS-SoSe-2021/P2.5/Aufgabe2/data.json");
+    communicate("https://bennip-stack.github.io/GIS-SoSe-2021/P2.5/Aufgabe2/data.json?1");
     //create img elemente
     function createImgElement(url, part) {
         const imgElem = document.createElement("img");
