@@ -11,7 +11,6 @@ namespace Aufgabe2 {
     let data: BData;
     async function communicate(_url: RequestInfo): Promise<void> {
         let response: Response = await fetch(_url);
-        console.log(Response, response);
         let antwort: BData = await response.json();
         data = antwort;
         buildPageFromData(data);

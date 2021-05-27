@@ -11,7 +11,6 @@ var Aufgabe2;
     let data;
     async function communicate(_url) {
         let response = await fetch(_url);
-        console.log(Response, response);
         let antwort = await response.json();
         data = antwort;
         buildPageFromData(data);
