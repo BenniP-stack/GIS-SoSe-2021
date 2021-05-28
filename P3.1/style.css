@@ -1,59 +1,22 @@
-* {
-    max-width: 800px;
+html {
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-input[type=text],
-select,
-textarea {
-    width: 760px;
-    /*800 - 2x 20px padding von Container*/
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
+#button {
+    border-radius: 1px solid rosybrown;
+    background-color:rosybrown;
+    margin-top: 20px;
+    border-color:rosybrown;
 }
 
-input[type=submit] {
-    /* Styling Submit Button */
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+#button:hover {
+    color: grey;
 }
 
-input[type=submit]:hover {
-    background-color: #45a049;
+h1 {
+    color: rosybrown;
 }
 
-.container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-}
-
-#subject {
-    /*Textfeldgröße*/
-    height: 200px;
-}
-
-#doggo {
-    width: 800px;
-    height: auto;
-}
-
-.fa {
-    width: 20px;
-    height: auto;
-    border-radius: 0;
-    padding-left: 3px;
-    padding-right: 3px;
-}
-
-.fa:hover {
-    opacity: .5;
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }

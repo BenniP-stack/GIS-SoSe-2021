@@ -1,47 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titel</title>
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+    <script src="index.js" defer></script>
+    <title>Kontaktdaten</title>
 </head>
-<!-- <div class="container">
-    <form action="/action_page.php">
-        <label for="fname">Vorname</label>
-        <input type="text" id="fname" name="firstname" placeholder="Vorname..">
-
-        <label for="lname">Nachname</label>
-        <input type="text" id="lname" name="lastname" placeholder="Nachname..">
-
-        <label for="country">Land</label>
-        <select id="country" name="country">
-        <option value="germany">Deutschland</option>
-        <option value="russia">Russland</option>
-        <option value="austria">Österreich</option>
-      </select>
-
-        <label for="subject">Betreff</label>
-        <textarea id="subject" name="subject" placeholder="Schreib' mir was.."></textarea>
-
-        <input name="fname" type="submit" value="https://gis-example.herokuapp.com/">
-    </form>
-</div> -->
-<div>
-    <form method="POST" action="https://gis-example.herokuapp.com/">
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname">
-        <button type="submit">Abschicken</button>
-    </form>
-</div>
-
 <body>
+    <form> 
+        
+        <h1>Kontaktdaten</h1>
 
+        <label for="vname">Vorname:</label> <br>
+        <input type="text" name="vname" id="vname"><br>
+
+        <label for="nname">Nachname:</label> <br>
+        <input type="text" name="nname" id="nname"><br>
+
+        <label for="telefon">Telefon:</label> <br>
+        <input type="text" name="telefon" id="Telefon"><br>
+
+        <label for="adresse">Adresse:</label> <br>
+        <input type="text" name="adresse" id="adresse"><br>
+
+        <button type="button" id="button">Absenden</button>
+
+    </form>
+    
 </body>
-
 </html>
