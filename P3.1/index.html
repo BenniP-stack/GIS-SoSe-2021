@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,11 @@
     <script src="index.js" defer></script>
     <title>Kontaktdaten</title>
 </head>
+
 <body>
-    <form> 
-        
+    <form method="POST">
+        <!--POST statt GET um die Daten nicht als Klartext in der URL zu haben-->
+
         <h1>Kontaktdaten</h1>
 
         <label for="vname">Vorname:</label> <br>
@@ -25,9 +28,10 @@
         <label for="adresse">Adresse:</label> <br>
         <input type="text" name="adresse" id="adresse"><br>
 
-        <button type="button" id="button">Absenden</button>
+        <button type="submit" id="button">Absenden</button>
 
     </form>
-    
+
 </body>
+
 </html>

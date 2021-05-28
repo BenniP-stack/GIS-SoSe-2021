@@ -7,10 +7,10 @@ var A3_1Server;
     console.log("Starting server"); //Konsole gibt Starting server aus
     let port = Number(process.env.PORT);
     if (!port)
-        port = 8100; //Port wird auf 8100 gesetzt
-    let server = Http.createServer(); //Server wird erstellt
-    server.addListener("request", handleRequest); //Funktion handleRequest wird aufgerufen
-    server.addListener("listening", handleListen); //HandleListen Funktion wird aufgerufen
+        port = 8100;
+    let server = Http.createServer(); //Server wird initialisiert
+    server.addListener("request", handleRequest); //Funktion handleRequest wird mit dem Server als Listener mitgegeben
+    server.addListener("listening", handleListen); //Funktion handleListen wird mit dem Server als Listener mitgegeben
     server.listen(port); //Server hört/reagiert auf port und startet
     function handleListen() {
         console.log("Listening");

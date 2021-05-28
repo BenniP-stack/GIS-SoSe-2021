@@ -3,18 +3,18 @@ html {
 }
 
 #button {
-    border-radius: 1px solid rosybrown;
-    background-color:rosybrown;
+    border-radius: 1px solid salmon;
+    background-color: salmon;
     margin-top: 20px;
-    border-color:rosybrown;
+    border-color: salmon;
 }
 
 #button:hover {
-    color: grey;
+    color: purple;
 }
 
 h1 {
-    color: rosybrown;
+    color: salmon;
 }
 
 p {

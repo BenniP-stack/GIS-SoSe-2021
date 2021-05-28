@@ -6,19 +6,19 @@ export namespace A3_1Server {
     let port: number = Number(process.env.PORT);
 
     if (!port)
-        port = 8100;  //Port wird auf 8100 gesetzt
+        port = 8100;  
 
 
-    let server: Http.Server = Http.createServer(); //Server wird erstellt
+    let server: Http.Server = Http.createServer();   //Server wird initialisiert
 
-    server.addListener("request", handleRequest);  //Funktion handleRequest wird aufgerufen
+    server.addListener("request", handleRequest);    //Funktion handleRequest wird mit dem Server als Listener mitgegeben
 
-    server.addListener("listening", handleListen); //HandleListen Funktion wird aufgerufen
+    server.addListener("listening", handleListen);   //Funktion handleListen wird mit dem Server als Listener mitgegeben
 
-    server.listen(port); //Server hört/reagiert auf port und startet
+    server.listen(port);                             //Server hört/reagiert auf port und startet
 
 
-    function handleListen(): void { //Konsole gibt Listening aus wenn Funktion aufgerufen wird
+    function handleListen(): void {                  //Konsole gibt Listening aus wenn Funktion aufgerufen wird
         console.log("Listening");
     }
 
@@ -32,10 +32,10 @@ export namespace A3_1Server {
         _response.setHeader("Access-Control-Allow-Origin", "*");
 
 
-        _response.write(_request.url); //Url wird ausgegeben
+        _response.write(_request.url);   //Url wird ausgegeben
 
 
-        _response.end(); //Response wird beendet
+        _response.end();                //Response wird beendet
     
     }
 }

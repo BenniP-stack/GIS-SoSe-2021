@@ -5,7 +5,7 @@
     "main": "index.js",
     "devDependencies": {},
     "scripts": {
-        "start": "node P3.1/server.js"
+        "start": "node GIS-SoSe-2021/P3.1/server.js"
     },
     "repository": {
         "type": "git",
