@@ -18,9 +18,9 @@ var A3_1Server;
     function handleRequest(_request, _response) {
         console.log("I hear voices!");
         console.log(_request.url);
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
-        _response.write(_request.url); //Url wird ausgegeben
+        _response.setHeader("content-type", "text/html; charset=utf-8"); //Hier wird der Header der Website mit Charset UTF-8 gesetzt
+        _response.setHeader("Access-Control-Allow-Origin", "*"); //Hier wird die CORS-Policy angepasst um Zugriff auf/von allen Ports gewährt
+        _response.write(_request.url); //Serveranfrage URL wird ausgegeben
         _response.end(); //Response wird beendet
     }
 })(A3_1Server = exports.A3_1Server || (exports.A3_1Server = {}));
