@@ -2,24 +2,19 @@ html {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-#buttonJSON{
-    border-radius: 1px solid rosybrown;
-    background-color:rosybrown;
+#button {
+    border-radius: 1px solid salmon;
+    background-color: salmon;
     margin-top: 20px;
-    border-color:rosybrown;
-    color: white;
+    border-color: salmon;
 }
 
-#buttonHTML {
-    border-radius: 1px solid rosybrown;
-    background-color:rosybrown;
-    margin-top: 20px;
-    border-color:rosybrown;
-    color: white;
+#button:hover {
+    color: purple;
 }
 
 h1 {
-    color: rosybrown;
+    color: salmon;
 }
 
 p {
