@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "A B C",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^15.6.2"
+  },
   "scripts": {
-    "start": "node P3.1/server.js"
+    "start": "node P3.2/server.js"
   },
   "repository": {
     "type": "git",
