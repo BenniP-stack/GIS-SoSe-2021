@@ -8,21 +8,21 @@ var Aufgabe3_2;
     let server = document.getElementById("server");
     async function handlehtml() {
         let formData = new FormData(document.forms[0]);
-        let url = "https://bennihirokugis.herokuapp.com/";
-        url += "/html";
+        let _url = "https://bennihirokugis.herokuapp.com";
+        _url += "/html";
         let query = new URLSearchParams(formData);
-        url = url += "?" + query.toString();
-        let response = await fetch(url);
+        _url = _url += "?" + query.toString();
+        let response = await fetch(_url);
         let responseText = await response.text();
         server.innerHTML = responseText;
     }
     async function handlejson() {
         let formData = new FormData(document.forms[0]);
-        let url = "https://bennihirokugis.herokuapp.com/";
-        url += "/json";
+        let _url = "https://bennihirokugis.herokuapp.com";
+        _url += "/json";
         let query = new URLSearchParams(formData);
-        url = url += "?" + query.toString();
-        let response = await fetch(url);
+        _url = _url += "?" + query.toString();
+        let response = await fetch(_url);
         let responseText = await response.text();
         console.log(responseText);
         let responseJSON = JSON.parse(responseText);

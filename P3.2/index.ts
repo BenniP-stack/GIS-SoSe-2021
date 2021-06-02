@@ -8,22 +8,22 @@ namespace Aufgabe3_2 {
 
     async function handlehtml(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://bennihirokugis.herokuapp.com/";
-        url += "/html";
+        let _url: string = "https://bennihirokugis.herokuapp.com";
+        _url += "/html";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url += "?" + query.toString();
-        let response: Response = await fetch(url);
+        _url = _url += "?" + query.toString();
+        let response: Response = await fetch(_url);
         let responseText: string = await response.text();
         server.innerHTML = responseText;
     }
 
     async function handlejson(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
-        let url: string = "https://bennihirokugis.herokuapp.com/";
-        url += "/json";
+        let _url: string = "https://bennihirokugis.herokuapp.com";
+        _url += "/json";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url += "?" + query.toString();
-        let response: Response = await fetch(url);
+        _url = _url += "?" + query.toString();
+        let response: Response = await fetch(_url);
         let responseText: string = await response.text();
         console.log(responseText);
         let responseJSON: JSON = JSON.parse(responseText);
