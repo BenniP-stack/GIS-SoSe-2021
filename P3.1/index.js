@@ -5,10 +5,9 @@ var Aufgabe3_1;
     button.addEventListener("click", handle);
     async function handle() {
         let formData = new FormData(document.forms[0]);
-        let _url = "https://bennihirokugis.herokuapp.com/";
+        let _url = "https://bennihirokugis.herokuapp.com";
         let query = new URLSearchParams(formData);
         _url = _url + "?" + query.toString();
-        console.log(_url);
         await fetch(_url);
         for (let entry of query) {
             console.log(entry);
@@ -17,7 +16,7 @@ var Aufgabe3_1;
         }
         let response = await fetch(_url);
         let answer = await response.text();
-        console.log(answer);
+        //console.log(answer);
         let paragraph = document.createElement("p");
         paragraph.innerText = answer;
         document.body.appendChild(paragraph);

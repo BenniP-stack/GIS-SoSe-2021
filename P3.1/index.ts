@@ -4,10 +4,9 @@ namespace Aufgabe3_1 {
 
     async function handle(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
-        let _url: RequestInfo = "https://bennihirokugis.herokuapp.com/"; 
+        let _url: RequestInfo = "https://bennihirokugis.herokuapp.com"; 
         let query: URLSearchParams = new URLSearchParams (<any>formData);
         _url = _url + "?" + query.toString();
-        console.log(_url);
         await fetch(_url);
 
         for (let entry of query) {
@@ -18,7 +17,7 @@ namespace Aufgabe3_1 {
         }
         let response: Response = await fetch(_url);
         let answer: string = await response.text();
-        console.log(answer);
+       //console.log(answer);
         let paragraph: HTMLParagraphElement = document.createElement("p");
         paragraph.innerText = answer;
         document.body.appendChild(paragraph);
