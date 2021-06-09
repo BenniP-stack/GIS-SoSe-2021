@@ -15,8 +15,9 @@ var Aufgabe3_1;
             console.log("value: " + entry[1]);
         }
         let response = await fetch(_url);
-        let answer = await response.text();
-        //console.log(answer);
+        console.log(response);
+        let answer = await response.url;
+        console.log(answer);
         let paragraph = document.createElement("p");
         paragraph.innerText = answer;
         document.body.appendChild(paragraph);

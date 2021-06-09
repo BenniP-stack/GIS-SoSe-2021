@@ -16,8 +16,9 @@ namespace Aufgabe3_1 {
             
         }
         let response: Response = await fetch(_url);
-        let answer: string = await response.text();
-       //console.log(answer);
+        console.log(response);
+        let answer: string = await response.url;
+        console.log(answer);
         let paragraph: HTMLParagraphElement = document.createElement("p");
         paragraph.innerText = answer;
         document.body.appendChild(paragraph);
