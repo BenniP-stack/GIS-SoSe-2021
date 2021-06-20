@@ -12,30 +12,24 @@ html {
 
 #datenErhalten {
     border-radius: 1px solid rgb(40, 114, 51);
-    ;
     background-color: rgb(40, 114, 51);
-    ;
     margin-top: 20px;
     border-color: rgb(40, 114, 51);
-    ;
     color: white;
 }
 
 #datenEntfernen {
     border-radius: 1px solid rgb(40, 114, 51);
-    ;
     background-color: rgb(40, 114, 51);
-    ;
     margin-top: 20px;
     border-color: rgb(40, 114, 51);
-    ;
     color: white;
 }
 
 h1 {
-    color: rosybrown;
+    color: rgb(40, 114, 51);
 }
 
 h2 {
-    color: rosybrown;
+    color: rgb(40, 114, 51);
 }
