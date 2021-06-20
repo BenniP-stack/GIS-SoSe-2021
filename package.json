@@ -1,22 +1,22 @@
 {
-  "name": "bennihirokugis",
-  "version": "1.0.0",
-  "description": "A B C",
-  "main": "index.js",
-  "devDependencies": {
-    "@types/node": "^15.6.2"
-  },
-  "scripts": {
-    "start": "node P3.4/server.js remote"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BenniP-stack/GIS-SoSe-2021.git"
-  },
-  "author": "Benjamin Pipus",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/BenniP-stack/GIS-SoSe-2021/issues"
-  },
-  "homepage": "https://github.com/BenniP-stack/GIS-SoSe-2021#readme"
+    "name": "bennihirokugis",
+    "version": "1.0.0",
+    "description": "A B C",
+    "main": "index.js",
+    "devDependencies": {
+        "@types/node": "^15.12.4"
+    },
+    "scripts": {
+        "start": "node P3.4/server.js remote"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/BenniP-stack/GIS-SoSe-2021.git"
+    },
+    "author": "Benjamin Pipus",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/BenniP-stack/GIS-SoSe-2021/issues"
+    },
+    "homepage": "https://github.com/BenniP-stack/GIS-SoSe-2021#readme"
 }
