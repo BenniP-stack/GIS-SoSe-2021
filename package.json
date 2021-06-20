@@ -4,6 +4,7 @@
     "description": "A B C",
     "main": "index.js",
     "devDependencies": {
+        "@types/mongodb": "^3.6.18",
         "@types/node": "^15.12.4"
     },
     "scripts": {
@@ -18,5 +19,8 @@
     "bugs": {
         "url": "https://github.com/BenniP-stack/GIS-SoSe-2021/issues"
     },
-    "homepage": "https://github.com/BenniP-stack/GIS-SoSe-2021#readme"
+    "homepage": "https://github.com/BenniP-stack/GIS-SoSe-2021#readme",
+    "dependencies": {
+        "mongodb": "^3.6.9"
+    }
 }
