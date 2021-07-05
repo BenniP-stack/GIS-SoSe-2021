@@ -1,4 +1,5 @@
 "use strict";
+//server.js muss mit Node.js ausgeführt werden
 Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
 const Url = require("url");

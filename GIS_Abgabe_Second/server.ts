@@ -1,3 +1,5 @@
+//server.js muss mit Node.js ausgeführt werden
+
 import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
