@@ -1,0 +1,57 @@
+.row {
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    cursor: pointer;
+}
+
+.card:hover {
+    /* border: 2px solid black; */
+    box-shadow: inset 0px 0px 0px 3px black;
+    box-sizing: border-box;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.cyan {
+    background-color: cyan;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.magenta {
+    background-color: magenta;
+}
+
+.salmon {
+    background-color: salmon;
+}
+
+.card-passive {
+    background-color: slategrey;
+}

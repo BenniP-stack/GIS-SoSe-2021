@@ -8,7 +8,7 @@
         "@types/node": "^15.12.4"
     },
     "scripts": {
-        "start": "node P3.4/server.js remote"
+        "start": "node GIS_Abgabe_Second/server.js"
     },
     "repository": {
         "type": "git",

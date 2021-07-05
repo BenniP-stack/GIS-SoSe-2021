@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/GIS_Abgabe_Second/server.js",
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ],
+            "env":{
+                "CONNECTION_STRING":"mongodb+srv://Test1:lampe95@benni.k5pbn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+            }
+        }
+    ]
+}

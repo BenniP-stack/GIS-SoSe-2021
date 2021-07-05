@@ -1,0 +1,19 @@
+GET http://localhost:8100/addUrl?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FImage%23%2Fmedia%2FFile%3AImage_created_with_a_mobile_phone.png&name=pic_1
+
+###
+
+GET http://localhost:8100/getUrl
+
+###
+
+GET http://localhost:8100/removeUrl?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FImage%23%2Fmedia%2FFile%3AImage_created_with_a_mobile_phone.png
+
+###
+
+GET http://localhost:8100/addScore?name=XY&time=20.455
+
+###
+GET http://localhost:8100/getScore
+
+###
+GET https://bennihirokugis.herokuapp.com/getScore
