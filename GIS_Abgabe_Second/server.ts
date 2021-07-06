@@ -6,8 +6,8 @@ import * as Mongo from "mongodb";
 
 const mongoUrl: string = <string>process.env.CONNECTION_STRING; //connection string zur MongoDB (secure data transmission)
 
-let scoreCollection: Mongo.Collection;
-let urlCollection: Mongo.Collection;
+let scoreCollection: Mongo.Collection; //Leaderboard
+let urlCollection: Mongo.Collection;   //URLs
 
 let port: number = Number(process.env.PORT);
 if (!port)
@@ -35,13 +35,12 @@ async function handleRequest(_request: Http.IncomingMessage, _response: Http.Ser
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");
 
-    console.log("aaaaa");
 
     if (_request.url) {
         let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
         let pathname: String | null = url.pathname;
 
-        if (pathname == "S") {
+        if (pathname == "/addUrl") {
             urlCollection.insertOne(url.query);
             connectToDatabase(mongoUrl);
         }
