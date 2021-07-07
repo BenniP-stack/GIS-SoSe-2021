@@ -5,8 +5,8 @@ const Http = require("http");
 const Url = require("url");
 const Mongo = require("mongodb");
 const mongoUrl = process.env.CONNECTION_STRING; //connection string zur MongoDB (secure data transmission)
-let scoreCollection;
-let urlCollection;
+let scoreCollection; //Leaderboard
+let urlCollection; //URLs
 let port = Number(process.env.PORT);
 if (!port)
     port = 8100; //Port wird auf 8100 gesetzt
@@ -25,11 +25,10 @@ async function connectToDatabase(_url) {
 async function handleRequest(_request, _response) {
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");
-    console.log("aaaaa");
     if (_request.url) {
         let url = Url.parse(_request.url, true);
         let pathname = url.pathname;
-        if (pathname == "S") {
+        if (pathname == "/addUrl") {
             urlCollection.insertOne(url.query);
             connectToDatabase(mongoUrl);
         }

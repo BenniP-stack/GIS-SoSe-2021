@@ -1,19 +1,19 @@
-GET http://localhost:8100/addUrl?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FImage%23%2Fmedia%2FFile%3AImage_created_with_a_mobile_phone.png&name=pic_1
+GET https://bennihirokugis.herokuapp.com/addUrl?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FImage%23%2Fmedia%2FFile%3AImage_created_with_a_mobile_phone.png&name=pic_1
 
 ###
 
-GET http://localhost:8100/getUrl
+GET https://bennihirokugis.herokuapp.com/getUrl
 
 ###
 
-GET http://localhost:8100/removeUrl?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FImage%23%2Fmedia%2FFile%3AImage_created_with_a_mobile_phone.png
+GET https://bennihirokugis.herokuapp.com/removeUrl?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FImage%23%2Fmedia%2FFile%3AImage_created_with_a_mobile_phone.png
 
 ###
 
-GET http://localhost:8100/addScore?name=XY&time=20.455
-
-###
-GET http://localhost:8100/getScore
+GET https://bennihirokugis.herokuapp.com/addScore?name=XY&time=20.455
 
 ###
 GET https://bennihirokugis.herokuapp.com/getScore
+
+###
+GET https://bennihirokugis.herokuapp.com/addUrl?url=https://cdn.discordapp.com/emojis/740671692543623219.png?v=1&name=pic_2
