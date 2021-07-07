@@ -17,3 +17,10 @@ GET https://bennihirokugis.herokuapp.com/getScore
 
 ###
 GET https://bennihirokugis.herokuapp.com/addUrl?url=https://cdn.discordapp.com/emojis/740671692543623219.png?v=1&name=pic_2
+
+###
+GET https://bennihirokugis.herokuapp.com/addUrl?url=https://cdn.discordapp.com/emojis/762522595366666300.png?v=1&name=pic_3
+
+###
+
+GET https://bennihirokugis.herokuapp.com/addUrl?url=https://cdn.discordapp.com/emojis/793222401050542169.png?v=1&name=pic_10
