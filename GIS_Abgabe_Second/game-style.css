@@ -105,6 +105,10 @@ p {
     color: black;
 }
 
+.overview-buttons {
+    display: inline-table;
+}
+
 
 /* TODO ein gesamt css für alle pages */
 
