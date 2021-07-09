@@ -1,26 +1,25 @@
 "use strict";
-var Aufgabe3_1;
-(function (Aufgabe3_1) {
-    let button = document.getElementById("button");
-    button.addEventListener("click", handle);
-    async function handle() {
-        let formData = new FormData(document.forms[0]);
-        let _url = "https://bennihirokugis.herokuapp.com";
-        let query = new URLSearchParams(formData);
-        _url = _url + "?" + query.toString();
-        await fetch(_url);
-        for (let entry of query) {
-            console.log(entry);
-            console.log("name: " + entry[0]);
-            console.log("value: " + entry[1]);
-        }
-        let response = await fetch(_url);
-        console.log(response);
-        let answer = await response.url;
-        console.log(answer);
-        let paragraph = document.createElement("p");
-        paragraph.innerText = answer;
-        document.body.appendChild(paragraph);
-    }
-})(Aufgabe3_1 || (Aufgabe3_1 = {}));
+// namespace Aufgabe3_1 {
+//     let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
+//     button.addEventListener("click", handle);
+//     async function handle(): Promise<void> {
+//         let formData: FormData = new FormData(document.forms[0]);
+//         let _url: RequestInfo = "https://bennihirokugis.herokuapp.com";
+//         let query: URLSearchParams = new URLSearchParams(<any>formData);
+//         _url = _url + "?" + query.toString();
+//         await fetch(_url);
+//         for (let entry of query) {
+//             console.log(entry);
+//             console.log("name: " + entry[0]);
+//             console.log("value: " + entry[1]);
+//         }
+//         let response: Response = await fetch(_url);
+//         console.log(response);
+//         let answer: string = await response.url;
+//         console.log(answer);
+//         let paragraph: HTMLParagraphElement = document.createElement("p");
+//         paragraph.innerText = answer;
+//         document.body.appendChild(paragraph);
+//     }
+// }
 //# sourceMappingURL=index.js.map

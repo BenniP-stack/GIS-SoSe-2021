@@ -7,7 +7,7 @@ class Card {
     }
 }
 
-function pad(val) { //(https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript)
+function pad(val: number) { //(https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript)
     let valString = val + "";
     if (valString.length < 2) {
         return "0" + valString;
@@ -94,7 +94,6 @@ class Game {
 
 
         for (let col: number = 0; col <= ((this.fieldHeight * this.fieldWidth) - 1); col += 2) {
-            //console.log("Filling fields " + col + " and " + (col+1));
             this.cards[col] = new Card(allUrls[(col / 2)].url, col);
             this.cards[col + 1] = new Card(allUrls[(col / 2)].url, (col + 1));
         }
@@ -106,7 +105,7 @@ class Game {
 
     }
 
-    shuffle(array) { //Fisher-Yates (aka. Knuth) Shuffle Algorithmus (https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript#toc-1-shuffing-cards)
+    shuffle(array: any) { //Fisher-Yates (aka. Knuth) Shuffle Algorithmus (https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript#toc-1-shuffing-cards)
         let currentIndex = array.length, temporaryValue, randomIndex;
 
         while (currentIndex !== 0) {

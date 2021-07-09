@@ -1,26 +1,26 @@
-namespace Aufgabe3_1 {
-    let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
-    button.addEventListener("click", handle);
+// namespace Aufgabe3_1 {
+//     let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
+//     button.addEventListener("click", handle);
 
-    async function handle(): Promise<void> {
-        let formData: FormData = new FormData(document.forms[0]);
-        let _url: RequestInfo = "https://bennihirokugis.herokuapp.com";
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
-        _url = _url + "?" + query.toString();
-        await fetch(_url);
+//     async function handle(): Promise<void> {
+//         let formData: FormData = new FormData(document.forms[0]);
+//         let _url: RequestInfo = "https://bennihirokugis.herokuapp.com";
+//         let query: URLSearchParams = new URLSearchParams(<any>formData);
+//         _url = _url + "?" + query.toString();
+//         await fetch(_url);
 
-        for (let entry of query) {
-            console.log(entry);
-            console.log("name: " + entry[0]);
-            console.log("value: " + entry[1]);
+//         for (let entry of query) {
+//             console.log(entry);
+//             console.log("name: " + entry[0]);
+//             console.log("value: " + entry[1]);
 
-        }
-        let response: Response = await fetch(_url);
-        console.log(response);
-        let answer: string = await response.url;
-        console.log(answer);
-        let paragraph: HTMLParagraphElement = document.createElement("p");
-        paragraph.innerText = answer;
-        document.body.appendChild(paragraph);
-    }
-}
+//         }
+//         let response: Response = await fetch(_url);
+//         console.log(response);
+//         let answer: string = await response.url;
+//         console.log(answer);
+//         let paragraph: HTMLParagraphElement = document.createElement("p");
+//         paragraph.innerText = answer;
+//         document.body.appendChild(paragraph);
+//     }
+// }

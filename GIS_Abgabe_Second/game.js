@@ -58,7 +58,6 @@ class Game {
             console.error("Not enough URLs for fieldsize. Fieldsize is : " + ((this.fieldHeight * this.fieldWidth) / 2) + " URLs on Server : " + allUrls.length);
         }
         for (let col = 0; col <= ((this.fieldHeight * this.fieldWidth) - 1); col += 2) {
-            //console.log("Filling fields " + col + " and " + (col+1));
             this.cards[col] = new Card(allUrls[(col / 2)].url, col);
             this.cards[col + 1] = new Card(allUrls[(col / 2)].url, (col + 1));
         }
