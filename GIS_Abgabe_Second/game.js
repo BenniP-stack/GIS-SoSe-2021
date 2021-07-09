@@ -14,9 +14,9 @@ function pad(val) {
     else {
         return valString;
     }
-}
+} //FIXME 
 class Game {
-    constructor(width, height, fieldHtml, scoreFormHtml, timerHtml) {
+    constructor(fieldHtml, scoreFormHtml, timerHtml) {
         this.cards = [];
         this.uncoveredCards = [];
         this.fieldHeight = 0;
@@ -39,7 +39,7 @@ class Game {
         formElem.addEventListener("submit", (e) => {
             e.preventDefault();
             fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI(e.target[0].value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);
-        });
+        }); //FIXME
     }
     handleTimer() {
         this.secondsSinceStart++;
@@ -75,7 +75,7 @@ class Game {
             array[randomIndex] = temporaryValue;
         }
         return array;
-    }
+    } //FIXME
     clickHandler(index) {
         if (this.animationActive)
             return;
@@ -135,7 +135,7 @@ class Game {
 }
 let game;
 window.addEventListener("load", function () {
-    game = new Game(2, 2, document.querySelector("#game"), document.querySelector("#scores"), document.querySelector("#timer"));
+    game = new Game(document.querySelector("#game"), document.querySelector("#scores"), document.querySelector("#timer"));
 });
 function handleClick(index) {
     game.clickHandler(index);

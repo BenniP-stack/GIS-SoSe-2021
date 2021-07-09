@@ -1,23 +1,29 @@
-.gameButton{
+.gameButton {
     width: 120px;
     height: 120px;
 }
 
-.memoryImage{
+.memoryImage {
     width: 120px;
     height: 120px;
 }
 
-.gameTable tr td{
+.gameTable tr td {
     width: 120px;
     height: 120px;
 }
 
-.coveredCard{
+.coveredCard {
     height: 118px;
     width: 118px;
     /*margin-bottom: 15px;*/
-    border: 1px solid black; 
+    border: 1px solid black;
     clear: both;
     background-color: gray;
 }
+
+
+/* TODO ein gesamt css für alle pages */
+
+
+/* TODO Verlinkung der Pages untereinander (Overview Page, nav bar) */

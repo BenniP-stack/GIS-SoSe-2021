@@ -14,7 +14,7 @@ function pad(val) { //(https://stackoverflow.com/questions/5517597/plain-count-u
     } else {
         return valString;
     }
-}
+}//FIXME 
 
 
 class Game {
@@ -39,7 +39,7 @@ class Game {
 
 
 
-    constructor(width: number, height: number, fieldHtml: HTMLElement, scoreFormHtml: HTMLElement, timerHtml: HTMLElement) {
+    constructor(fieldHtml: HTMLElement, scoreFormHtml: HTMLElement, timerHtml: HTMLElement) {
 
 
         this.fieldWidth = 5; //festgelegte fieldsize
@@ -58,7 +58,7 @@ class Game {
             e.preventDefault();
             fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI(e.target[0].value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);
 
-        });
+        }); //FIXME
 
     }
 
@@ -117,7 +117,7 @@ class Game {
             array[randomIndex] = temporaryValue;
         }
         return array;
-    }
+    } //FIXME
 
     clickHandler(index: number) {
 
@@ -142,7 +142,7 @@ class Game {
                 this.drawBoard();
                 this.animationActive = false;
 
-            }, 1000);
+            },         1000);
         }
         this.drawBoard();
     }
@@ -191,19 +191,10 @@ class Game {
     }
 }
 
-
-
-
-
-
-
-
-
-
 let game: Game;
 
 window.addEventListener("load", function (): void {
-    game = new Game(2, 2, document.querySelector("#game"), document.querySelector("#scores"), document.querySelector("#timer"));
+    game = new Game(document.querySelector("#game"), document.querySelector("#scores"), document.querySelector("#timer"));
 });
 
 

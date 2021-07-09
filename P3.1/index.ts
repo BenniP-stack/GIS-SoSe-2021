@@ -4,8 +4,8 @@ namespace Aufgabe3_1 {
 
     async function handle(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]);
-        let _url: RequestInfo = "https://bennihirokugis.herokuapp.com"; 
-        let query: URLSearchParams = new URLSearchParams (<any>formData);
+        let _url: RequestInfo = "https://bennihirokugis.herokuapp.com";
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
         _url = _url + "?" + query.toString();
         await fetch(_url);
 
@@ -13,7 +13,7 @@ namespace Aufgabe3_1 {
             console.log(entry);
             console.log("name: " + entry[0]);
             console.log("value: " + entry[1]);
-            
+
         }
         let response: Response = await fetch(_url);
         console.log(response);
