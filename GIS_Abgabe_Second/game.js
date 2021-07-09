@@ -37,7 +37,6 @@ class Game {
         this.timerHandle = setInterval(() => { this.handleTimer(); }, 1000);
         let formElem = scoreFormHtml.querySelector("form");
         formElem.addEventListener("submit", (e) => {
-            // on form submission, prevent default
             e.preventDefault();
             fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI(e.target[0].value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);
         });

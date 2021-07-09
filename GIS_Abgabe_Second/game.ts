@@ -7,7 +7,7 @@ class Card {
     }
 }
 
-function pad(val) {
+function pad(val) { //(https://stackoverflow.com/questions/5517597/plain-count-up-timer-in-javascript)
     let valString = val + "";
     if (valString.length < 2) {
         return "0" + valString;
@@ -55,7 +55,6 @@ class Game {
         let formElem = scoreFormHtml.querySelector("form");
 
         formElem.addEventListener("submit", (e) => {
-            // on form submission, prevent default
             e.preventDefault();
             fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI(e.target[0].value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);
 
@@ -107,7 +106,7 @@ class Game {
 
     }
 
-    shuffle(array) { //Knuth Algorithmus 
+    shuffle(array) { //Fisher-Yates (aka. Knuth) Shuffle Algorithmus (https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript#toc-1-shuffing-cards)
         let currentIndex = array.length, temporaryValue, randomIndex;
 
         while (currentIndex !== 0) {
@@ -143,7 +142,7 @@ class Game {
                 this.drawBoard();
                 this.animationActive = false;
 
-            },         1000);
+            }, 1000);
         }
         this.drawBoard();
     }
