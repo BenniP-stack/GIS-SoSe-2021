@@ -14,7 +14,7 @@ function pad(val: number) { //(https://stackoverflow.com/questions/5517597/plain
     } else {
         return valString;
     }
-}//FIXME 
+}
 
 
 class Game {
@@ -25,7 +25,7 @@ class Game {
     clickedCard: number = -1;
     secondClickedCard: number = -1;
     pairsFound: Card[] = [];
-    board: number[][] = [];
+    board: number[][] = []; //TODO Braucht man das?
     fieldHtml: HTMLElement;
     timerHtml: HTMLElement;
     scoreFormHtml: HTMLElement;
@@ -34,7 +34,7 @@ class Game {
     timerHandle;
     secondsSinceStart: number = 0;
 
-    elementSize: number = 120;
+    elementSize: number = 120; //TODO Braucht man das?
 
 
 
@@ -63,9 +63,9 @@ class Game {
     }
 
 
-    handleTimer() {
+    handleTimer(): void {
         this.secondsSinceStart++;
-        this.timerHtml.innerHTML = "<br>Time : " + pad(Math.floor(this.secondsSinceStart / 60)) + " : " + pad(this.secondsSinceStart % 60) + "<br>";
+        this.timerHtml.innerHTML = "<br>Time: " + pad(Math.floor(this.secondsSinceStart / 60)) + " : " + pad(this.secondsSinceStart % 60) + "<br>";
     }
 
     async initCards() {
@@ -116,7 +116,7 @@ class Game {
             array[randomIndex] = temporaryValue;
         }
         return array;
-    } //FIXME
+    }
 
     clickHandler(index: number) {
 
@@ -141,7 +141,7 @@ class Game {
                 this.drawBoard();
                 this.animationActive = false;
 
-            },         1000);
+            }, 1000);
         }
         this.drawBoard();
     }

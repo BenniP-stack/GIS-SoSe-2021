@@ -14,7 +14,7 @@ function pad(val) {
     else {
         return valString;
     }
-} //FIXME 
+}
 class Game {
     constructor(fieldHtml, scoreFormHtml, timerHtml) {
         this.cards = [];
@@ -24,10 +24,10 @@ class Game {
         this.clickedCard = -1;
         this.secondClickedCard = -1;
         this.pairsFound = [];
-        this.board = [];
+        this.board = []; //TODO Braucht man das?
         this.animationActive = false;
         this.secondsSinceStart = 0;
-        this.elementSize = 120;
+        this.elementSize = 120; //TODO Braucht man das?
         this.fieldWidth = 5; //festgelegte fieldsize
         this.fieldHeight = 4;
         this.fieldHtml = fieldHtml;
@@ -43,7 +43,7 @@ class Game {
     }
     handleTimer() {
         this.secondsSinceStart++;
-        this.timerHtml.innerHTML = "<br>Time : " + pad(Math.floor(this.secondsSinceStart / 60)) + " : " + pad(this.secondsSinceStart % 60) + "<br>";
+        this.timerHtml.innerHTML = "<br>Time: " + pad(Math.floor(this.secondsSinceStart / 60)) + " : " + pad(this.secondsSinceStart % 60) + "<br>";
     }
     async initCards() {
         if (this.fieldHeight * this.fieldWidth % 2 != 0) {
@@ -74,7 +74,7 @@ class Game {
             array[randomIndex] = temporaryValue;
         }
         return array;
-    } //FIXME
+    }
     clickHandler(index) {
         if (this.animationActive)
             return;
