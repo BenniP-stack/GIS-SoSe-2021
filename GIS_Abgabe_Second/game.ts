@@ -25,16 +25,13 @@ class Game {
     clickedCard: number = -1;
     secondClickedCard: number = -1;
     pairsFound: Card[] = [];
-    board: number[][] = []; //TODO Braucht man das?
     fieldHtml: HTMLElement;
     timerHtml: HTMLElement;
     scoreFormHtml: HTMLElement;
-    animationActive = false;
-
+    animationActive: boolean = false;
     timerHandle;
     secondsSinceStart: number = 0;
 
-    elementSize: number = 120; //TODO Braucht man das?
 
 
 
@@ -52,13 +49,17 @@ class Game {
         this.initCards();
         this.timerHandle = setInterval(() => { this.handleTimer(); }, 1000);
 
-        let formElem = scoreFormHtml.querySelector("form");
+        let formElem: HTMLFormElement = scoreFormHtml.querySelector("form");
 
         formElem.addEventListener("submit", (e) => {
             e.preventDefault();
-            fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI(e.target[0].value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);
+            fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI((document.getElementById("PlayerName") as HTMLInputElement).value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);
+        }); 
 
-        }); //FIXME
+        // formElem.addEventListener("submit", (e) => {
+        //     e.preventDefault();
+        //     fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI(e.target[0].value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);
+        // }); 
 
     }
 
@@ -76,7 +77,7 @@ class Game {
 
 
 
-        let response = await fetch("https://bennihirokugis.herokuapp.com/getUrl");
+        let response: Response = await fetch("https://bennihirokugis.herokuapp.com/getUrl");
 
 
 
@@ -96,6 +97,7 @@ class Game {
         for (let col: number = 0; col <= ((this.fieldHeight * this.fieldWidth) - 1); col += 2) {
             this.cards[col] = new Card(allUrls[(col / 2)].url, col);
             this.cards[col + 1] = new Card(allUrls[(col / 2)].url, (col + 1));
+            console.log(this.cards);
         }
 
 
@@ -105,8 +107,8 @@ class Game {
 
     }
 
-    shuffle(array: any) { //Fisher-Yates (aka. Knuth) Shuffle Algorithmus (https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript#toc-1-shuffing-cards)
-        let currentIndex = array.length, temporaryValue, randomIndex;
+    shuffle(array: any): [] { //Fisher-Yates (aka. Knuth) Shuffle Algorithmus (https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript#toc-1-shuffing-cards)
+        let currentIndex: number = array.length, temporaryValue: number, randomIndex: number;
 
         while (currentIndex !== 0) {
             randomIndex = Math.floor(Math.random() * currentIndex);
@@ -118,7 +120,7 @@ class Game {
         return array;
     }
 
-    clickHandler(index: number) {
+    clickHandler(index: number): void {
 
         if (this.animationActive)
             return;
@@ -155,21 +157,22 @@ class Game {
     }
 
 
-    drawBoard() {
+    drawBoard(): void {
         this.fieldHtml.innerHTML = "";
 
-        let table = document.createElement("table");
+        let table: HTMLTableElement = document.createElement("table");
         table.className = "gameTable";
-        let tableBody = document.createElement("tbody");
+        let tableBody: HTMLTableSectionElement = document.createElement("tbody");
         table.appendChild(tableBody);
+        let tr: HTMLTableRowElement;
 
-        for (let index = 0; index <= (this.fieldHeight * this.fieldWidth) - 1; index++) {
-            let tr = document.createElement("tr");
+        for (let index: number = 0; index <= ((this.fieldHeight * this.fieldWidth) - 1); index++) {
 
             if ((index % this.fieldWidth == 0)) {
+                tr = document.createElement("tr"); //"Zeilenumbruch"
                 tableBody.appendChild(tr);
             }
-            let td = document.createElement("td");
+            let td: HTMLTableDataCellElement = document.createElement("td");
             let fieldButton: HTMLElement = document.createElement("div");
             fieldButton.className = ".gameButton";
             if (index == this.clickedCard || index == this.secondClickedCard || (this.pairsFound.indexOf(this.cards[index]) != -1)) { // Wenn karte gezeigt werden soll
@@ -197,6 +200,6 @@ window.addEventListener("load", function (): void {
 });
 
 
-function handleClick(index: number) {
+function handleClick(index: number): void {
     game.clickHandler(index);
 }

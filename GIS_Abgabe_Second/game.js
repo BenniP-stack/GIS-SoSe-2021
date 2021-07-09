@@ -24,10 +24,8 @@ class Game {
         this.clickedCard = -1;
         this.secondClickedCard = -1;
         this.pairsFound = [];
-        this.board = []; //TODO Braucht man das?
         this.animationActive = false;
         this.secondsSinceStart = 0;
-        this.elementSize = 120; //TODO Braucht man das?
         this.fieldWidth = 5; //festgelegte fieldsize
         this.fieldHeight = 4;
         this.fieldHtml = fieldHtml;
@@ -38,8 +36,12 @@ class Game {
         let formElem = scoreFormHtml.querySelector("form");
         formElem.addEventListener("submit", (e) => {
             e.preventDefault();
-            fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI(e.target[0].value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);
-        }); //FIXME
+            fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI(document.getElementById("PlayerName").value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);
+        });
+        // formElem.addEventListener("submit", (e) => {
+        //     e.preventDefault();
+        //     fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI(e.target[0].value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);
+        // }); 
     }
     handleTimer() {
         this.secondsSinceStart++;
@@ -60,6 +62,7 @@ class Game {
         for (let col = 0; col <= ((this.fieldHeight * this.fieldWidth) - 1); col += 2) {
             this.cards[col] = new Card(allUrls[(col / 2)].url, col);
             this.cards[col + 1] = new Card(allUrls[(col / 2)].url, (col + 1));
+            console.log(this.cards);
         }
         this.shuffle(this.cards);
         this.drawBoard();
@@ -108,9 +111,10 @@ class Game {
         table.className = "gameTable";
         let tableBody = document.createElement("tbody");
         table.appendChild(tableBody);
-        for (let index = 0; index <= (this.fieldHeight * this.fieldWidth) - 1; index++) {
-            let tr = document.createElement("tr");
+        let tr;
+        for (let index = 0; index <= ((this.fieldHeight * this.fieldWidth) - 1); index++) {
             if ((index % this.fieldWidth == 0)) {
+                tr = document.createElement("tr"); //"Zeilenumbruch"
                 tableBody.appendChild(tr);
             }
             let td = document.createElement("td");
