@@ -109,6 +109,44 @@ p {
     display: inline-table;
 }
 
+#scores {
+    text-align: center;
+    padding: 15px;
+    margin: 15px;
+}
+
+#PlayerName {
+    border-radius: 15px;
+    font-size: larger;
+}
+
+.btn1 {
+    cursor: pointer;
+    font-size: 20px;
+    color: black;
+}
+
+.btn1::after,
+.btn1::before {
+    border: 3px solid black;
+    content: "";
+    position: absolute;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.btn1:hover::after {
+    transform: translate(-5px, -5px)
+}
+
+.btn1:hover::before {
+    transform: translate(5px, 5px)
+}
+
 
 /* TODO ein gesamt css für alle pages */
 
