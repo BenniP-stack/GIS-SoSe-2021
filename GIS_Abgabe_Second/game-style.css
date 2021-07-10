@@ -1,7 +1,11 @@
 body {
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-image: linear-gradient(grey, black);
 }
 
@@ -16,8 +20,8 @@ body {
 }
 
 .gameTable tr td {
-    width: 150px;
-    height: 150px;
+    width: 155px;
+    height: 155px;
 }
 
 .coveredCard {
@@ -35,10 +39,6 @@ body {
 }
 
 #timer {
-    text-align: center;
-}
-
-h1 {
     text-align: center;
 }
 
@@ -75,20 +75,14 @@ h1:hover {
     transform-origin: left;
 } */
 
-.gameTable {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
 .coveredCard,
 .memoryImage {
     filter: drop-shadow(0px 31px 33px rgba(0, 0, 0, 0.451));
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
-button {
+
+/* button {
     width: 347px;
     height: 175px;
     color: white;
@@ -99,14 +93,10 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 p {
     color: black;
-}
-
-.overview-buttons {
-    display: inline-table;
 }
 
 #scores {
@@ -115,36 +105,43 @@ p {
     margin: 15px;
 }
 
-#PlayerName {
-    border-radius: 15px;
-    font-size: larger;
-}
-
-.btn1 {
+input[type="text"] {
+    font-size: 15px;
     cursor: pointer;
-    font-size: 20px;
-    color: black;
+    border: none;
+    background: snow;
+    padding: 0 25px;
+    border-radius: 25px 0 0 25px;
+    width: 250px;
+    height: 45px;
+    outline: none;
 }
 
-.btn1::after,
-.btn1::before {
-    border: 3px solid black;
-    content: "";
-    position: absolute;
-    width: calc(100% - 6px);
-    height: calc(100% - 6px);
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    transition: transform 0.3s ease;
+input:focus::placeholder {
+    color: transparent;
 }
 
-.btn1:hover::after {
-    transform: translate(-5px, -5px)
+input::placeholder {
+    color: #222;
+    transition: color 0.3s ease;
 }
 
-.btn1:hover::before {
-    transform: translate(5px, 5px)
+input[type=submit] {
+    font-size: 15px;
+    position: relative;
+    left: -5px;
+    padding: 5px 15px;
+    background: rgb(49, 144, 54);
+    border-radius: 0 25px 25px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 120px;
+    height: 45px;
+}
+
+input[type=submit]:hover {
+    opacity: 75%;
 }
 
 

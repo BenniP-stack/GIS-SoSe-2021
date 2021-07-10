@@ -20,6 +20,7 @@ async function loadUrlsFromDB(target) {
         fieldButton.className = ".gameButton";
         fieldButton.innerHTML = "<img class='memoryImage' src='" + allUrls[index].url + "'></img>";
         fieldButton.addEventListener("click", function () { removeUrl(allUrls[index].url); });
+        //FIXME
         td.appendChild(fieldButton);
         tr.appendChild(td);
     }

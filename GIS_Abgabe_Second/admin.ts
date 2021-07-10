@@ -31,7 +31,7 @@ async function loadUrlsFromDB(target: HTMLElement) {
 
         fieldButton.innerHTML = "<img class='memoryImage' src='" + allUrls[index].url + "'></img>";
         fieldButton.addEventListener("click", function (): void { removeUrl(allUrls[index].url); });
-
+        //FIXME
 
 
         td.appendChild(fieldButton);
