@@ -142,12 +142,26 @@ input[type=submit]:hover {
 }
 
 .overview_buttons {
-    display: flex;
-    flex-wrap: wrap;
+    align-content: center;
+    position: relative;
+    margin: auto;
+    margin-top: 8px;
+    padding: 5px;
+    border: none;
+    border-radius: 33px 33px 33px 33px;
+    width: 250px;
+    height: 66px;
+    font-size: 18px;
+    background: rgb(49, 144, 54);
+}
+
+.overview_buttons:hover {
+    opacity: 75%;
+    cursor: pointer;
 }
 
 
-/* TODO ein gesamt css für alle pages */
+/* TODO leaderboard css */
 
 
 /* TODO Verlinkung der Pages untereinander (Overview Page, nav bar) */
