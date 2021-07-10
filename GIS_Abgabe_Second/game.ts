@@ -54,6 +54,7 @@ class Game {
         formElem.addEventListener("submit", (e) => {
             e.preventDefault();
             fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI((document.getElementById("PlayerName") as HTMLInputElement).value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);
+            formElem.reset();
         }); 
 
         // formElem.addEventListener("submit", (e) => {
