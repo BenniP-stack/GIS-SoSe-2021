@@ -127,6 +127,25 @@ input[type=submit]:hover {
     align-content: center;
 }
 
+.overview>input[type=submit] {
+    font-size: 15px;
+    position: relative;
+    left: -5px;
+    padding: 5px 15px;
+    background: rgb(49, 144, 54);
+    border-radius: 0 25px 25px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 120px;
+    height: 45px;
+}
+
+.overview_buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 /* TODO ein gesamt css für alle pages */
 
