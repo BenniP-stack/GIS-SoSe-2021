@@ -10,17 +10,17 @@ async function loadUrlsFromDB(target) {
     table.className = "gameTable";
     let tableBody = document.createElement("tbody");
     table.appendChild(tableBody);
+    let tr;
     for (let index = 0; index <= allUrls.length - 1; index++) {
-        let tr = document.createElement("tr");
         if ((index % 5 == 0)) {
+            tr = document.createElement("tr");
             tableBody.appendChild(tr);
         }
         let td = document.createElement("td");
         let fieldButton = document.createElement("div");
         fieldButton.className = ".gameButton";
-        fieldButton.innerHTML = "<img class='memoryImage' src='" + allUrls[index].url + "'></img>";
+        fieldButton.innerHTML = "<img class='memoryImageAdmin' src='" + allUrls[index].url + "'></img>";
         fieldButton.addEventListener("click", function () { removeUrl(allUrls[index].url); });
-        //FIXME
         td.appendChild(fieldButton);
         tr.appendChild(td);
     }
@@ -36,7 +36,7 @@ window.addEventListener("load", function () {
     loadUrlsFromDB(document.querySelector("#images"));
     document.querySelector("form").addEventListener("submit", (e) => {
         e.preventDefault();
-        fetch("https://bennihirokugis.herokuapp.com/addUrl?url=" + encodeURI(document.getElementById("PlayerName").value));
+        fetch("https://bennihirokugis.herokuapp.com/addUrl?url=" + encodeURI(document.getElementById("newUrl").value));
         setTimeout(() => { window.location.reload(); }, 500);
     });
 });

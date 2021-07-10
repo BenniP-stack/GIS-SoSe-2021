@@ -16,11 +16,11 @@ async function loadUrlsFromDB(target: HTMLElement) {
     table.className = "gameTable";
     let tableBody: HTMLElement = document.createElement("tbody");
     table.appendChild(tableBody);
-
+    let tr: HTMLElement;
     for (let index = 0; index <= allUrls.length - 1; index++) {
-        let tr: HTMLElement = document.createElement("tr");
-        if ((index % 5 == 0)) {
 
+        if ((index % 5 == 0)) {
+            tr = document.createElement("tr");
             tableBody.appendChild(tr);
         }
         let td: HTMLElement = document.createElement("td");
@@ -29,9 +29,9 @@ async function loadUrlsFromDB(target: HTMLElement) {
         let fieldButton: HTMLElement = document.createElement("div");
         fieldButton.className = ".gameButton";
 
-        fieldButton.innerHTML = "<img class='memoryImage' src='" + allUrls[index].url + "'></img>";
+        fieldButton.innerHTML = "<img class='memoryImageAdmin' src='" + allUrls[index].url + "'></img>";
         fieldButton.addEventListener("click", function (): void { removeUrl(allUrls[index].url); });
-        //FIXME
+    
 
 
         td.appendChild(fieldButton);
@@ -53,7 +53,7 @@ window.addEventListener("load", function (): void {
     loadUrlsFromDB(document.querySelector("#images"));
     document.querySelector("form").addEventListener("submit", (e) => {
         e.preventDefault();
-        fetch("https://bennihirokugis.herokuapp.com/addUrl?url=" + encodeURI((document.getElementById("PlayerName") as HTMLInputElement).value));
+        fetch("https://bennihirokugis.herokuapp.com/addUrl?url=" + encodeURI((document.getElementById("newUrl") as HTMLInputElement).value));
         setTimeout(() => { window.location.reload(); }, 500);
     });
 
