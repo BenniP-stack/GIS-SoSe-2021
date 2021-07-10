@@ -8,7 +8,7 @@
         "@types/node": "^15.12.4"
     },
     "scripts": {
-        "start": "node GIS_Abgabe_Second/server.js"
+        "start": "node GIS_Endabgabe_Benjamin_Pipus/server.js"
     },
     "repository": {
         "type": "git",
