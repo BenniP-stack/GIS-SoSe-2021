@@ -57,7 +57,7 @@ namespace Endabgabe {
                 fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI((document.getElementById("PlayerName") as HTMLInputElement).value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);
                 formElem.reset();
             });
-
+            //FIX: https://stackoverflow.com/questions/53071851/getting-the-value-from-input-element-in-typescript/53072115
             // formElem.addEventListener("submit", (e) => {
             //     e.preventDefault();
             //     fetch("https://bennihirokugis.herokuapp.com/addScore?name=" + encodeURI(e.target[0].value) + "&time=" + encodeURI(pad(Math.floor(this.secondsSinceStart / 60))) + "." + this.secondsSinceStart % 60);

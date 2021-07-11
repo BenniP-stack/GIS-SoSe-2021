@@ -51,7 +51,7 @@ window.addEventListener("load", function (): void {
     loadUrlsFromDB(document.querySelector("#images"));
     document.querySelector("form").addEventListener("submit", (e) => {
         e.preventDefault();
-        fetch("https://bennihirokugis.herokuapp.com/addUrl?url=" + encodeURI((document.getElementById("newUrl") as HTMLInputElement).value));
+        fetch("https://bennihirokugis.herokuapp.com/addUrl?url=" + encodeURI((document.getElementById("newUrl") as HTMLInputElement).value)); //https://stackoverflow.com/questions/53071851/getting-the-value-from-input-element-in-typescript/53072115
         setTimeout(() => { window.location.reload(); }, 500);
     });
 
