@@ -63,6 +63,10 @@ body {
     text-align: center;
 }
 
+h1 {
+    text-align: center;
+}
+
 h1:hover {
     opacity: 75%;
     cursor: pointer;
@@ -158,6 +162,39 @@ input[type=submit]:hover {
 .overview_buttons:hover {
     opacity: 75%;
     cursor: pointer;
+}
+
+.play_buttons {
+    display: grid;
+    place-items: middle;
+    position: relative;
+    margin: 8px;
+    border: none;
+    border-radius: 33px 33px 33px 33px;
+    width: 130px;
+    height: 45px;
+    font-size: 16px;
+    background: rgb(49, 144, 54);
+}
+
+.play_buttons button {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.play_buttons:hover {
+    opacity: 75%;
+    cursor: pointer;
+}
+
+
+/* .align-buttons {} */
+
+#scoreboard {
+    background-color: rgb(83, 127, 144);
+    border: 2px solid black;
+    filter: drop-shadow(0px 31px 33px rgba(0, 0, 0, 0.451));
+    border-radius: 8px;
 }
 
 

@@ -6,17 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play</title>
-    <script src="game.js"></script>
+    <script type="text/javascript" src="game.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 
 <body>
     <header>
-        <a href="overview.html"></a>
-        <h1>
-            Memeory
-        </h1>
+        <div>
+            <h1>
+                Memeory
+            </h1>
+        </div>
+        <div class="align-buttons">
+            <form action="https://bennip-stack.github.io/GIS-SoSe-2021/GIS_Abgabe_Second/admin.html">
+                <button class="play_buttons" type="submit" value="Admin " />
+                <p>Admin</p>
+            </form>
+            <form action="https://bennip-stack.github.io/GIS-SoSe-2021/GIS_Abgabe_Second/overview.html">
+                <button class="play_buttons" type="submit" value="Play " />
+                <p>Overview</p>
+            </form>
+            <form action="https://bennip-stack.github.io/GIS-SoSe-2021/GIS_Abgabe_Second/score.html">
+                <button class="play_buttons" type="submit" value="Leaderboard " />
+                <p>Leaderboard</p>
+            </form>
+        </div>
     </header>
     <main>
         <div id="timer"></div>

@@ -10,7 +10,7 @@ function sortByProperty(_property: any) {  //https://medium.com/@asadise/sorting
 }
 
 
-async function getScores(_output: HTMLElement) {
+async function getScores(_output: HTMLElement): Promise<void> {
 
     let result: Response = await fetch("https://bennihirokugis.herokuapp.com/getScore");
     let allUrls: any = await result.json();
