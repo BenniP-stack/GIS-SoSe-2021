@@ -1,4 +1,4 @@
-GET https://bennihirokugis.herokuapp.com/addUrl?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FImage%23%2Fmedia%2FFile%3AImage_created_with_a_mobile_phone.png&name=pic_1
+GET https://bennihirokugis.herokuapp.com/addUrl?url=https://i.pinimg.com/564x/7a/ff/9e/7aff9e3e3c32330d68d52184afdef645.jpg&name=pic_28
 
 ###
 
